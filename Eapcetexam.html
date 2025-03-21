@@ -1,0 +1,2512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Eapcet</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script><!--js file-->
+    <style>
+        body {
+            background-color: #f4f8fb;
+            color: #333;
+        }
+
+        .container-fluid {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h1, h2 {
+            color: #4e0561;
+        }
+
+        .card {
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensures the card takes up full height */
+        }
+
+        .card-body {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 90px; /* Fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Topic title color */
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333; /* Dark color for title */
+        }
+
+        /* Card description text color */
+        .card-text {
+            font-size: 0.9rem;
+            color: #666; /* Lighter gray for text */
+            margin-bottom: 10px;
+        }
+
+        .card-footer {
+            font-size: 0.9rem;
+            font-weight: bold;
+            background-color: transparent;
+            border-top: none;
+            color: #333; /* Dark color for footer */
+        }
+
+        /* Remove default link styling */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover .card-body {
+            transform: scale(1.05);
+        }
+
+        /* Gradient Card Background */
+        .math-card {
+            background: linear-gradient(135deg, #28a745, #4caf50); /* Green gradient */
+        }
+
+        .physics-card {
+            background: linear-gradient(135deg, #19d0e8, #2269e2);
+        }
+
+        .chemistry-card {
+            background: linear-gradient(135deg, #ed8225, #e78e28);
+        }
+        .exam-card {
+            background: linear-gradient(135deg, #d3c527, #e8eb29);
+        }
+        
+
+        /* Subject heading colors */
+        .math-heading {
+            color: #28a745; /* Green color for Mathematics */
+        }
+
+        .physics-heading {
+            color: #5fcb11; /* Purple color for Physics */
+        }
+
+        .chemistry-heading {
+            color: #ff4b2b; /* Red color for Chemistry */
+        }
+        .exam-heading {
+            color: #a59e17; /* Red color for Chemistry */
+        }
+    
+                .custom-free-btn {
+                    width: 50px; /* Set fixed width */
+                    height: 35px; /* Set fixed height */
+                    font-size: 12px; /* Reduce font size */
+                    padding: 2px 5px; /* Adjust padding */
+                }
+        
+            
+        .button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if needed) */
+    width: 100%; /* Ensures it spans the full width */
+    margin-top: 30px; /* Adjust spacing as needed */
+}
+.custom-btn {
+    border: none;
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+@media (max-width: 576px) {
+    .custom-btn {
+        font-size: 14px;  /* Slightly smaller font */
+        padding: 4px 8px;  /* Reduce padding */
+        margin: 2px;  /* Reduce space between buttons */
+    }
+
+    .card-footer .d-flex {
+        gap: 5px; /* Reduce gap between buttons */
+    }
+}
+
+/* Learn More Button - Blue */
+.custom-btn.learn-more {
+    background-color: #876603; /* Custom blue */
+    color: white;
+}
+
+.custom-btn.learn-more:hover {
+    background-color: #053737; /* Darker blue */
+}
+
+/* Practice Button - Green */
+.custom-btn.practice {
+    background-color: #097474; /* Custom green */
+    color: white;
+}
+
+.custom-btn.practice:hover {
+    background-color: #053737; /* Darker green */
+}
+
+/* Test Button - Red */
+.custom-btn.test {
+    background-color: #cdbc07; /* Custom red */
+    color: white;
+}
+
+.custom-btn.test:hover {
+    background-color: #053737; /* Darker red */
+}
+/* Custom Button Styling */
+.btn-custom-primary {
+    background-color: #05786f; /* Change this to your desired button color */
+    border-color: #f3eeee; /* Change this to your desired button border color */
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    text-align: center;
+    display: inline-block;
+    border-radius: 25px; /* Optional: Adds rounded corners */
+}
+
+.btn-custom-primary:hover {
+    background-color: #efd37f7a; /* Change this to your desired hover color */
+    border-color: #f4b289f2; /* Change this to your desired hover border color */
+}
+
+    </style>
+</head>
+<body>
+    <section class="header" style="font-family: sans-serif;">
+        <nav>
+            <a href="index.html"><img src="logo.png" alt="" class="logo"></a>
+            <div class="search">
+                <input type="text" id="mySearch" onclick="showSearchMenu()" placeholder="Search ..." title="Type in a category">
+                <ul id="myMenu">
+                  <li><a href="eapcet.html">Eapcet</a></li>
+                  <li><a href="jeemains.html">Jee Mains</a></li>
+                  <li><a href="c.html">C Language</a></li>
+                  <li><a href="python.html">Python</a></li>
+                  <li><a href="java.html">Java</a></li>
+                  <li><a href="html.html">HTML</a></li>
+                  <li><a href="css.html">CSS</a></li>
+                  <li><a href="javascript.html">JavaScript</a></li>
+                  <li><a href="ds.html">Data Structures and Algorithms</a></li> 
+                  <li><a href="sql.html">SQL</a></li>
+                  <li><a href="selenium.html">Selenium</a></li>
+                  <li><a href="aws.html">AWS</a></li>
+                  <li><a href="fullstack.html">Full Stack Development with Python and Django</a></li>
+                  <li><a href="aptitude.html">Quantitative Aptitude</a></li>
+                  <li><a href="reasoning.html">Logical Reasoning</a></li>
+                  <li><a href="dca.html">DCA</a></li>
+                  <li><a href="certificate.html">Certificate</a></li>
+                  <li><a href="New exams.html">Exams</a></li>
+                  <li><a href="aboutus.html">About</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="courses.html"> Courses</a></li>
+                </ul>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideNavMenu()"></i>
+                <ul><b>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                            <li><a class="dropdown-item" href="eapcet.html">EAPCET</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Software</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="c.html">C</a></li>
+                                    <li><a class="dropdown-item" href="python.html">Python</a></li>
+                                    <li><a class="dropdown-item" href="java.html">Java</a></li>
+                                    <li><a class="dropdown-item" href="html.html">HTML</a></li>
+                                    <li><a class="dropdown-item" href="css.html">CSS</a></li>
+                                    <li><a class="dropdown-item" href="javascript.html">Java Script</a></li>
+                                    <li><a class="dropdown-item" href="ds.html">Data Structures and Algorithms</a></li>
+                                    <li><a class="dropdown-item" href="sql.html">SQL</a></li>
+                                    <li><a class="dropdown-item" href="selenium.html">Selenium</a></li>
+                                    <li><a class="dropdown-item" href="aws.html">AWS</a></li>
+                                    <li><a class="dropdown-item" href="fullstack.html">Full Stack Development with Python and Django</a></li>
+                                   
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="aptitude.html">Aptitude</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><a href="New exams.html">Exams</a></li>
+                   
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" aria-expanded="false">
+                          Quick Links 
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                          <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                          <li><a class="dropdown-item" href="certificate.html">Certificates</a></li>
+                          <li><a class="dropdown-item" href="admin.html">Admin Portal</a></li>
+                      </ul>
+                  </li>
+                    
+                    <li><a href="tel:9030941099" class="call-now-btn">Call Now</a></li>
+                </b></ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showNavMenu()"></i>
+        </nav>
+    </section>
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+          <div class="container mt-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Eapcet </li>
+                </ol>
+              </nav>
+            <h3>Eapcet</h3>
+          </div>
+        </section><!-- End Breadcrumbs -->
+        <body class="bg-light">
+            <div class="container mt-5">
+                <h1 class="text-center mb-4">Select Your Exam Type</h1>
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary w-100 mb-2" onclick="toggleSubcategories('eapcet')">Full Test</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary w-100 mb-2" onclick="toggleSubcategories('easy')">Subject-Wise</button>
+                    </div>
+
+                    
+                    
+                    <!-- Content to be shown when button is clicked -->
+                    <div id="easy-content" style="display: none; margin-top: 10px;">
+                        <div class="container-fluid">
+                            <h1 class="text-center mb-4">Subjects and Topic-Wise Questions</h1>
+                    
+                            <!-- Mathematics Section -->
+<h2 class="mt-5 mb-4 chemistry-heading">Mathematics</h2>
+
+<!-- Row to hold the columns -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <!-- Initial content (Visible by default) -->
+            <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Applications of Derivatives</h5>
+                        <button class="btn btn-danger btn-sm mt-2 custom-free-btn">Free</button>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 4 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/DerivativesP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Applications_of_Derivatives.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            <div class="col mb-3 ">
+                
+                    <div class="card math-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Binomial Theorem</h5>
+                            
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/BinomialP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Binomial_Theorem.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="col mb-3">
+                
+                    <div class="card math-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Circle and System of Circles</h5>
+                           
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 5 marks</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                               <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/circleP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Circle_and_System_of_Circles.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="col mb-3">
+                
+                    <div class="card math-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Complex Numbers</h5>
+                            
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 4 marks</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/complexnumbers.html'">Notes</button>
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/ComplexP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Complex_Numbers.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+              
+            </div>
+        </div>
+        
+    
+        <!-- Additional content (Initially hidden) -->
+
+        <div id="more-maths" style="display: none;">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" >
+    
+    <div class="col mb-3">
+        
+            <div class="card math-card">
+                <div class="card-body">
+                    <h5 class="card-title">Conic Sections</h5>
+                   
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 4 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/ConicP.html'">Practice</button>
+                        <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Conic_Sections.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    </div>
+    <div class="col mb-3">
+        
+        <div class="card math-card">
+            <div class="card-body">
+                <h5 class="card-title">Definite Integrals and Its Applications</h5>
+               
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/DefiniteP.html'">Practice</button>
+                    <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Definite_Integrals_and_Its_Applications.html'">Test</button>
+                </div>
+                
+            </div>
+        </div>
+   
+</div>
+    <div class="col mb-3">
+        
+            <div class="card math-card">
+                <div class="card-body">
+                    <h5 class="card-title">Differential Equations</h5>
+                   
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/DifferentialP.html'">Practice</button>
+                         <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Differential_Equations.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+
+    <!-- Add more content if needed -->
+    <div class="col mb-3">
+        
+            <div class="card math-card">
+                <div class="card-body">
+                    <h5 class="card-title">Differentiation</h5>
+         
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/differentiation.html'">Notes</button>
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/DifferentiationP.html'">Practice</button>
+                         <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Differentiation.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+    <div class="col mb-3">
+        
+        <div class="card math-card">
+            <div class="card-body">
+                <h5 class="card-title">Functions</h5>
+     
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/functions.html'">Notes</button>
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/FunctionsP.html'">Practice</button>
+                     <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Functions.html'">Test</button>
+                </div>
+                
+            </div>
+        </div>
+   
+</div>
+
+
+    <div class="col mb-3">
+        
+            <div class="card math-card">
+                <div class="card-body">
+                    <h5 class="card-title">Hyperbolic Functions</h5>
+              
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/hyperbolicfunctions.html'">Notes</button>
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/HyperbolicP.html'">Practice</button>
+                         <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Hyperbolic_Functions.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+      
+    </div>
+    <div class="col mb-3">
+        
+        <div class="card math-card">
+            <div class="card-body">
+                <h5 class="card-title">Indefinite Integrals</h5>
+     
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-2">Weightage:<br>EAPCET - 4 marks</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/indefiniteP.html'">Practice</button>
+                     <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Indefinite_Integrals.html'">Test</button>
+                </div>
+                
+            </div>
+        </div>
+   
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Inverse Trigonometric Functions</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/inversetrignometry.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/InverseP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Inverse_Trigonometric_Functions.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Limits and Continuity</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/LimitsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Limits_and_Continuity.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Mathematical Induction</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/InductionP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Mathematical_Induction.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Matrices and Determinants</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/matrices.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/MatricesP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Matrices_Determinants.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Measures of Dispersion</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/MeasuresP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Measures_of_Dispersion.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Miscellaneous</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/MiscellaneousP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Miscellaneous.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Partial Fractions</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/PartialP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Partial_Fractions.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Permutations and Combinations</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/PermutationsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Permutations_and_Combinations.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Probability</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 4 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/ProbabilityP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Probability.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Properties of Triangles</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/propertiesoftriangle.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/TrianglesP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Properties_of_Triangles.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Quadratic Expressions</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/QuadraticP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Quadratic_Expressions.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Rectangular Cartesian Coordinates</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/RectangularP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Rectangular_Cartesian_Coordinates.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Straight Lines & Pair of Straight Lines</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 6 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/StraightP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Straight_Line_and_Pair_of_Straight_Lines.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Theory of Equations</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/TheoryP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Theory_of_Equations.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Three Dimensional Geometry</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/3DP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Three_Dimensional_Geometry.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Trigonometric Equations</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/trignometricequations.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/TrigoEquationsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Trigonometric_Equations.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Trigonometric Functions and Identities</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/Maths/Notes/trignometry.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/TrigoFunctionsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Trigonometric_Functions_and_Identities.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card math-card">
+        <div class="card-body">
+            <h5 class="card-title">Vector Algebra</h5>
+ 
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 5 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Maths/question_images/VectorP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Vector_Algebra.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+
+        </div></div>
+
+        <div class="button-container">
+            <a href="javascript:void(0);" class="btn btn-custom-primary" id="toggleButton" onclick="toggleContent('more-maths')">View More Chapters</a>
+        </div>
+    
+  
+    
+    
+       
+       
+<!-- Mathematics Section -->
+<h2 class="mt-5 mb-4 chemistry-heading">Physics</h2>
+
+<!-- Row to hold the columns -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <!-- Initial content (Visible by default) -->
+            <div class="col mb-3 ">
+                <div class="card physics-card">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">Alternating Current</h5>
+                        <button class="btn btn-danger btn-sm mt-2 custom-free-btn">Free</button>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/AlternatingP.html'">Practice</button>
+                             <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/alternating_current.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3 ">
+                
+                    <div class="card physics-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Atoms</h5>
+                            
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/AtomsP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Atoms.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="col mb-3">
+                
+                    <div class="card physics-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Communication Systems</h5>
+                           
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                               <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/CommunicationP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/CommunicationSystems.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="col mb-3">
+                
+                    <div class="card physics-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Current Electricity</h5>
+                            
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/CurrentP.html'">Practice</button>
+                                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/CurrentElectricity.html'">Test</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+              
+            </div>
+        </div>
+        
+    
+        <!-- Additional content (Initially hidden) -->
+
+        <div id="more-physics" style="display: none;">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" >
+    
+    <div class="col mb-3">
+        
+            <div class="card physics-card">
+                <div class="card-body">
+                    <h5 class="card-title">Electric Charges and Fields</h5>
+                   
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/EchargesP.html'">Practice</button>
+                         <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/ElectricChargesandFields.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="col mb-3">
+        
+            <div class="card physics-card">
+                <div class="card-body">
+                    <h5 class="card-title">Electromagnetic Induction</h5>
+                   
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                       <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/EmagneticIP.html'">Practice</button>
+                         <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/ElectromagneticInduction.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+
+    <!-- Add more content if needed -->
+    <div class="col mb-3">
+        
+            <div class="card physics-card">
+                <div class="card-body">
+                    <h5 class="card-title">Electromagnetic Waves</h5>
+         
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/EwavesP.html'">Practice</button>
+                       <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/ElectromagneticWaves.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+
+    <div class="col mb-3">
+        
+            <div class="card physics-card">
+                <div class="card-body">
+                    <h5 class="card-title">Electrostatic Potential and Capacitance</h5>
+              
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/EpotentialP.html'">Practice</button>
+                        <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/ElectrostaticPotential.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+      
+    </div>
+    <div class="col mb-3">
+        
+        <div class="card physics-card">
+            <div class="card-body">
+                <h5 class="card-title">Gravitation</h5>
+          
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/gravitation.html'">Notes</button>
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/GravitationP.html'">Practice</button>
+                    <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Gravitation.html'">Test</button>
+                </div>
+                
+            </div>
+        </div>
+  
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Kinematics</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/Kinematics.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/KinematicsP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Kinematics.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Kinetic Theory of Gases</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/kinetictheoryofgases.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/KineticP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/KineticTheoryofGases.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Laws of Motion</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/lawsofmotion.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/LawP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/lawsofmotion.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Magnetic Effects of Current</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/EffectsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/MagneticEffects.html'">Test</button>-->
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Magnetism and Matter</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/MagnetismP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/MagnetismandMatter.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Mechanical Properties of Fluids</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/mechanicalpropertiesoffluids.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/FluidsP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/MechanicalPropertiesofFluids.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Mechanical Properties of Solids</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/mechanicalpropertiesofsolids.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/SolidsP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/MechanicalPropertiesofSolids.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Nuclei</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/NucleiP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Nuclei.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Oscillations</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/oscillations.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/OscillationsP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Oscillations.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Physical World, Units and Measurements</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/unitsanddimensions.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/PhysicalP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/Physical_World_Units_and_Measurements.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Dual Nature of Radiation and Matter</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/RadiationP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/RadiationandMatter.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Ray Optics and Optical Instruments</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/RayP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/RayOptics.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Rotational Motion</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/MotionP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/RotationalMotion.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Semiconductors Electronics,Devices & Simple Circuits</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/SemiP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/SemiconductorElectronics.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Thermal Properties of Matter</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/thermalpropertiesofmatter.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/ThermalP.html'">Practice</button>
+                <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/Maths/ThermalPropertiesofMatter.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Thermodynamics</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/thermodynamics.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/ThermoP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Thermodynamics.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Wave Optics</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/WaveP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/WaveOptics.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Waves</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/wavesP.html'">Practice</button>
+               <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/Waves.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+        
+    <div class="card physics-card">
+        <div class="card-body">
+            <h5 class="card-title">Work,Energy and Power</h5>
+      
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/physics/Notes/workenergyandpower.html'">Notes</button>
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/physics/question_images/WorkP.html'">Practice</button>
+                 <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/physics/WorkEnergyandPower.html'">Test</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+    
+     
+
+
+        </div></div>
+
+        <div class="button-container">
+            <a href="javascript:void(0);" class="btn btn-custom-primary" id="toggleButton" onclick="toggleContent('more-physics')">View More Chapters</a>
+        </div>
+    
+    
+    
+    
+    
+
+        
+        <!-- Chemistry Section -->
+<h2 class="mt-5 mb-4 chemistry-heading">Chemistry</h2>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+    <div class="col mb-3">
+       
+        <div class="card chemistry-card">
+            <div class="card-body">
+                <h5 class="card-title">Atomic Structure</h5>
+                <button class="btn btn-danger btn-sm mt-2 custom-free-btn">Free</button>
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                   <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/AtomicP.html'">Practice</button>
+                    <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Atomic_Structure.html'">Test</button>
+                </div>
+                
+            </div>
+        </div>
+   
+</div>
+    <div class="col mb-3">
+        
+            <div class="card chemistry-card">
+                <div class="card-body">
+                    <h5 class="card-title">Alcohols,Phenols & Ethers</h5>
+                    
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/AlcoholsP.html'">Practice</button>
+                        <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Alcohols.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+    <div class="col mb-3 ">
+       
+            <div class="card chemistry-card">
+                <div class="card-body">
+                    <h5 class="card-title">Aldehydes,Ketones and Carboxylic Acids</h5>
+          
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/AldehydesP.html'">Practice</button>
+                        <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Aldehydes.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    </div>
+    
+    <div class="col mb-3 ">
+      
+            <div class="card chemistry-card">
+                <div class="card-body">
+                    <h5 class="card-title">Biomolecules</h5>
+                  
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/BiomoleculesP.html'">Practice</button>
+                        <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Biomolecules.html'">Test</button>
+                    </div>
+                    
+                </div>
+            </div>
+      
+    </div>
+</div>
+
+<div id="more-chemistry" style="display: none;">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" >
+        
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chemical Bonding and Molecular Structure</h5>
+              
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/chemicalbonding.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/C_BondingP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Chemical_Bonding.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chemical Equilibrium</h5>
+                    
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/C_EquilibriumP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Chemical_Equilibrium.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+    
+        <!-- Add more content if needed -->
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chemical Kinetics</h5>
+                     
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/ChemicalKineticsP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Chemical_Kinetics.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+    
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chemistry Every Day Life</h5>
+                
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/chemistryineverydaylilfe.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/everydayP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Chemistryeveryday.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Classification of Elements and Periodic Properties</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/Classification_PeriodicP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Periodic_Properties.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Coordination Compounds</h5>
+                    
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/CoordinationP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/coordination_compounds.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">D and F Block</h5>
+                     
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/d_f_P.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/d_f_block.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Electrochemistry</h5>
+                      
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/electroP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Electrochemistry.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Environmental Chemistry</h5>
+                       
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/environmentalchemistry.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/EnvironmentalP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Environmental.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+          
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gaseous and Liquid States</h5>
+                       
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/GaseousandLiquidStates.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/GaseousP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Gaseous_and_Liquid_States.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">General Organic Chemistry and Hydrocarbons</h5>
+                  
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 3 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/General_OrganicP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Organic_chemistry.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">General Principles of Metallurgy</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/metallurgy.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/MetallurgyP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/General_principles_of_Metallurgy.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Haloalkanes and Haloarenes</h5>
+                    
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/HaloalkanesP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Haloalkanes.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Hydrogen and its Compounds</h5>
+                       
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/hydrogen&Compounds.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/HydrogenP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Hydrogen.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Organic Compounds Containing Nitrogen</h5>
+                     
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/CompoundsP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Organic_compounds.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+          
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Polymers</h5>
+                     
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/polymers.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/PolymersP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Polymers.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">S and P Block</h5>
+                      
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 5 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/S&P_P.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/s_p_block.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Solid State</h5>
+                      
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/solidstate.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/Solid_State_P.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Solid_State.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Solutions</h5>
+                     
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 2 marks</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <!-- <button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/SolutionsP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Solutions.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+        <div class="col mb-3">
+           
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Some Basic Concepts and Stoichiometry</h5>
+                       
+                    </div>
+                   <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/BasicP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Some_Basic_Concepts_and_Stoichiometry.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Surface Chemistry</h5>
+                       
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                           <button class="custom-btn learn-more" onclick="window.location.href='Eapcet_Questions_html/chemistry/Notes/surfacechemistry.html'">Notes</button>
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/SurfaceP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Surface_Chemistry.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col mb-3">
+            
+                <div class="card chemistry-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Thermodynamics</h5>
+                       
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>EAPCET - 1 mark</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <!--<button class="custom-btn learn-more" onclick="window.location.href='learn-more.html'">Notes</button>-->
+                            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/chemistry/question_images/ThermoP.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='Eapcet_Questions_html/chemistry/Thermodynamics.html'">Test</button>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+        </div>
+
+    </div>
+</div>    
+      <!-- View More button for Physics -->
+      <div class="button-container">
+        <a href="javascript:void(0);" class="btn btn-custom-primary" id="toggleButton" onclick="toggleContent('more-chemistry')">View More Chapters</a>
+    </div>
+    
+<!-- More content can be added as needed -->
+</div>
+                    
+                    
+</div>
+                
+
+
+            <!-- Full Test shown when button is clicked -->
+            <div id="eapcet-content" style="display: none; margin-top: 10px;">
+                <div class="container-fluid">
+                    <h1 class="text-center mb-4">Full Test </h1>
+            
+                    
+
+<!-- Row to hold the columns -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+    <!-- Initial content (Visible by default) -->
+    
+    <div class="col mb-3">
+        <div class="card exam-card">
+            <div class="card-body position-relative">
+                <button class="btn btn-danger position-absolute top-0 start-0 m-2">Free</button>
+                <h5 class="card-title text-center">Full Test 1</h5>
+                <div class="row">
+                    <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                    </div>
+                    <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-footer text-center">
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_1.html'">Take Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col mb-3">
+        
+            <div class="card exam-card">
+                <div class="card-body">
+
+                    <h5 class="card-title text-center">Full Test 2 </h5>
+                    <div class="row">
+                        <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                        </div>
+                        <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                        </div>
+    
+                    </div>   
+                </div>
+                <div class="card-footer text-center">
+                 
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_2.html'">Take Test </button>
+                    </div>
+                    
+                </div>
+            </div>
+       
+    </div>
+    <div class="col mb-3">
+        
+            <div class="card exam-card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Full Test 3</h5>
+                    <div class="row">
+                        <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                        </div>
+                        <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                        </div>
+    
+                    </div> 
+                </div>
+                <div class="card-footer text-center">
+                  
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                        <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_3.html'">Take Test </button>
+                    </div>
+                    
+                </div>
+            </div>
+      
+    </div>
+    <div class="col mb-3">
+
+        <div class="card exam-card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Full Test 4</h5>
+                <div class="row">
+                    <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                    </div>
+                    <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+    
+                    <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_4.html'">Take Test </button>
+                </div>
+                
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+<!-- Additional content (Initially hidden) -->
+
+<div id="more-exam" style="display: none;">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" >
+
+
+<div class="col mb-3">
+
+<div class="card exam-card">
+    <div class="card-body">
+        <h5 class="card-title text-center">Full Test 5</h5>
+        <div class="row">
+            <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+            </div>
+            <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_5.html'">Take Test </button>
+        </div>
+        
+    </div>
+</div>
+
+</div>
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full Test 6</h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+           
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_6.html'">Take Test </button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+<!-- Add more content if needed -->
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full test 7</h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_7.html'">Take Test </button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full Test 8</h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+           
+           <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_8.html'">Take Test </button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full Test 9</h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+           
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+               
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_9.html'">Take Test </button>
+                
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full Test 10 </h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_10.html'">Take Test </button>
+                 
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+
+    <div class="card exam-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Full Test 11</h5>
+            <div class="row">
+                <div class="col">                <i class="bi bi-clock"> 180 mins</i>
+                </div>
+                <div class="col">                <i class="bi bi-question-circle"> 160 Q's</i>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+           
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/Full_Test_11.html'">Take Test </button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+<div class="col mb-3">
+<div class="card exam-card">
+    <div class="card-body">
+        <h5 class="card-title text-center">Entrance Test </h5>
+        <div class="row">
+            <div class="col">                <i class="bi bi-clock"> 60 mins</i>
+            </div>
+            <div class="col">                <i class="bi bi-question-circle"> 60 Q's</i>
+            </div>
+
+        </div>
+        <button class="btn btn-danger position-absolute top-0 start-0 m-2">Free</button>
+    </div>
+    <div class="card-footer text-center">
+        
+        
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <button class="custom-btn practice" onclick="window.location.href='Eapcet_Questions_html/Eapcet Full Test/sampletest.html'">Take Test</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</div></div>
+
+<div class="button-container">
+    <a href="javascript:void(0);" class="btn btn-custom-primary" id="toggleButton" onclick="toggleContent('more-exam')">More Tests</a>
+</div>
+
+
+
+
+
+
+          
+            <script>
+                function toggleSubcategories(showId) {
+                    var sections = ["eapcet", "easy"]; // List of all sections
+                    sections.forEach(id => {
+                        var content = document.getElementById(id + '-content');
+                        if (content) {
+                            if (id === showId) {
+                                // Toggle visibility for the clicked section
+                                content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
+                            } else {
+                                // Hide the other section
+                                content.style.display = "none";
+                            }
+                        }
+                    });
+                }
+            </script>
+            
+            
+         <!--view more-->
+        <script>
+            function showMoreContent(sectionId) {
+        var moreContent = document.getElementById(sectionId);
+        // Toggle the display of the additional content
+        if (moreContent.style.display === "none" || moreContent.style.display === "") {
+            moreContent.style.display = "block";
+        } else {
+            moreContent.style.display = "none";
+        }
+    }
+    
+        </script>
+      
+  
+    </main>
+    <footer id="footer" class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Info Section -->
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <a href="index.html"><img src="logo.png" alt="" class="logo"></a>
+                        <p>Empowering excellence in a diverse and innovative learning community.</p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.instagram.com/prathibha_institute/" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/@PrathibhaInstitute" class="youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!-- Useful Links Section -->
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="aboutus.html">About us</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="terms.html">Terms Of Service</a></li>
+                        </ul>
+                    </div>
+                    <!-- Our Courses Section -->
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Courses</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="fullstack.html">Software</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="eapcet.html">EAPCET/JEE-MAINS</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="aptitude.html">Quantitative Aptitude</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Us Section -->
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Ground Floor, D.S. Bingi Arcade <br>
+                            Near ABS Venture, Vinayak Nagar<br>
+                            Nizamabad-503001 <br><br>
+                            <a href="tel:9030941099"><strong>Phone:</strong> +91 9030941099</a><br>
+                            <strong>Email:</strong> prathibhainstitutions@gmail.com<br>
+                        </p>
+                    
+                    </div>
+                </div>
+                <hr>
+                   
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>&copy; 2024 Prathibha Institute. All rights reserved.</p>
+        </div> 
+    </footer>
+    <script>
+       function toggleContent(sectionId) {
+    var content = document.getElementById(sectionId);
+    var button = document.querySelector(`a[onclick="toggleContent('${sectionId}')"]`); // Select the correct button
+
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block"; // Show content
+        button.textContent = "View Less"; // Change button text
+    } else {
+        content.style.display = "none"; // Hide content
+        button.textContent = "View More Chapters"; // Change button text back
+    }
+}
+        </script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>    
+ <!-- WhatsApp -->
+ <a href="https://wa.me/9030941099?text=Hello" target="_blank" style="position: fixed; right: 25px; bottom: 50px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" width="70">
+  </a>
+</body>
+</html>    
