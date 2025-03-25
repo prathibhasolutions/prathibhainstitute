@@ -154,9 +154,18 @@
         const numberofquestions = 160;
         const positivemark = 1;
         const negativemark = 0;
-        
+    
+        // Retrieve students from localStorage and log for debugging
         let students = JSON.parse(localStorage.getItem("students")) || [];
-        // Example hardcoded answers (you can replace this with actual answer keys)
+        console.log("Students array from localStorage:", students);
+    
+        // If students array is empty, it means names.js hasn’t run yet
+        if (students.length === 0) {
+            console.error("Students array is empty. Ensure names.js is loaded and executed.");
+            alert("Error: Student list not loaded. Please refresh the page or contact support.");
+            return;
+        }
+    
         const correctAnswers = [
             "B", "A", "C", "C", "D", "D", "C", "B", "B", "C",
             "A", "D", "B", "A", "D", "B", "D", "D", "D", "C",
@@ -176,7 +185,7 @@
             "D", "D", "B", "C", "C", "B", "C", "B", "B", "C"
         ];
     
-        // Dynamically inject exam details into the HTML
+        // Dynamically inject exam details
         document.getElementById("examTimerItem").innerHTML = `1. The exam duration is <strong>${examTimer} minutes</strong>.`;
         document.getElementById("examquestionnumItem").innerHTML = `2. The exam consists of <strong>${numberofquestions} multiple-choice questions</strong>.`;
         document.getElementById("exammarksItem").innerHTML = `3. Each question carries <strong>${positivemark} marks</strong>, and there is a <strong>${negativemark} mark penalty</strong> for incorrect answers.`;
@@ -184,38 +193,46 @@
         const generateBtn = document.getElementById("generateBtn");
         const agreeCheckbox = document.getElementById("agreeCheckbox");
     
-        // Event listener for the checkbox change
+        // Enable button only when checkbox is checked
         agreeCheckbox.addEventListener("change", () => {
             generateBtn.disabled = !agreeCheckbox.checked;
         });
     
-        // Click event for "Start Mock Test" button
+        // Handle "Start Mock Test" button click
         generateBtn.addEventListener("click", async () => {
             const studentName = document.getElementById("userName").value.trim();
+            console.log("Entered name:", studentName);
     
             if (!studentName) {
                 alert("Please enter your name.");
                 return;
             }
     
-            // Normalize both input and stored names for comparison
+            // Normalize names for comparison
             const normalizedInput = studentName.toLowerCase().trim();
-            let found = students.some(student => student.toLowerCase().trim() === normalizedInput);
+            const found = students.some(student => {
+                const normalizedStudent = student.toLowerCase().trim();
+                console.log(`Comparing: "${normalizedInput}" with "${normalizedStudent}"`);
+                return normalizedStudent === normalizedInput;
+            });
     
             if (!found) {
+                console.log("Name not found in students list.");
                 alert("Name not found in the student list. Redirecting to payment page.");
                 window.location.href = "../../payment.html";
                 return;
             }
     
-            // Store all data in localStorage
+            console.log("Name found! Proceeding with exam setup.");
+    
+            // Store data in localStorage
             localStorage.setItem("studentName", studentName);
             localStorage.setItem("examName", examName);
             localStorage.setItem("examTimer", examTimer);
             localStorage.setItem("examfolder", examfolder);
             localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
     
-            // Send data to Google Sheets via Apps Script (without correctAnswers)
+            // Send data to Google Sheets
             const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec';
             const formData = new FormData();
             formData.append('name', studentName);
@@ -224,18 +241,18 @@
             formData.append('examfolder', examfolder);
     
             try {
-                if (confirm("Are you sure to start the mock test!")) {
+                if (confirm("Are you sure to start the mock test?")) {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.text();
+                    console.log("Google Sheets response:", result);
                     window.location.href = "exam.html";
                 }
-                const response = await fetch(url, {
-                    method: 'POST',
-                    body: formData
-                });
-                const result = await response.text();
-                console.log(result);
             } catch (error) {
-                alert("There was an error saving your data.");
-                console.error(error);
+                alert("Error saving data. Please try again.");
+                console.error("Fetch error:", error);
             }
         });
     });
