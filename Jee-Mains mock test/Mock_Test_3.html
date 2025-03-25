@@ -122,7 +122,7 @@
     document.addEventListener("DOMContentLoaded", () => {
     const examName = "JEE-Mains";
     const examTimer = 180;
-    const examfolder = "Set-3";
+    const examfolder = "Jee-Mains mock test/Set-3";
     const numberofquestions = 75;
     const positivemark = 4;
     const negativemark = -1;
@@ -177,6 +177,11 @@
     formData.append('examfolder', examfolder);
 
     try {
+      // Prompt to confirm before starting the exam
+      if (confirm("Are you sure to start the mock test!")) {
+        // Redirect to exam page
+        window.location.href = "../exam.html";
+      }
       const response = await fetch(url, {
         method: 'POST',
         body: formData

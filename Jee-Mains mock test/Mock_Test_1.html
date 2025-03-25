@@ -180,6 +180,11 @@
     formData.append('examfolder', examfolder);
 
     try {
+      // Prompt to confirm before starting the exam
+      if (confirm("Are you sure to start the mock test!")) {
+        // Redirect to exam page
+        window.location.href = "../exam.html";
+      }
       const response = await fetch(url, {
         method: 'POST',
         body: formData
