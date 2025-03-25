@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-let students = ["sravan", "shashank", "akhilesh", "rishika", "hasini", "spoorthi", "sharanya", "spandhana", "srinidhi", "anugna", "tejasri", "sai hansini"];
+let students = ["sravan", "rishika", "hasini", "spoorthi", "sharanya", "spandhana", "srinidhi", "anugna", "teja sri", "sai hansini", "shashank", "akhilesh"];
 localStorage.setItem("students", JSON.stringify(students));
 
 
