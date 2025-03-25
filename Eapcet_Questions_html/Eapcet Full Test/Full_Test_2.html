@@ -159,12 +159,7 @@
         let students = JSON.parse(localStorage.getItem("students")) || [];
         console.log("Students array from localStorage:", students);
     
-        // If students array is empty, it means names.js hasn’t run yet
-        if (students.length === 0) {
-            console.error("Students array is empty. Ensure names.js is loaded and executed.");
-            alert("Error: Student list not loaded. Please refresh the page or contact support.");
-            return;
-        }
+       
     
         const correctAnswers = [
             "B", "A", "C", "C", "D", "D", "C", "B", "B", "C",
@@ -217,8 +212,7 @@
             });
     
             if (!found) {
-                console.log("Name not found in students list.");
-                alert("Name not found in the student list. Redirecting to payment page.");
+                
                 window.location.href = "../../payment.html";
                 return;
             }
