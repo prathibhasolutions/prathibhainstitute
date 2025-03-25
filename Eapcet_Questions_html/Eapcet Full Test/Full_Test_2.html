@@ -146,110 +146,100 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="names.js"></script>
-  <script >
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const examName = "Eapcet";
-    const examTimer = 180;
-    const examfolder = "Full Test 2";
-    const numberofquestions = 160;
-    const positivemark = 1;
-    const negativemark = 0;
-    // const students = JSON.parse(localStorage.getItem("students"));
-    let students = JSON.parse(localStorage.getItem("students")) || [];
-    // Example hardcoded answers (you can replace this with actual answer keys)
-    const correctAnswers = [
-      "B", "A", "C", "C","D", "D", "C", "B", "B", "C",
-      "A", "D", "B", "A", "D", "B", "D", "D", "D","C",
-      "B", "D", "A","B", "D", "C", "C", "D","C","B",
-      "B", "B", "C", "B", "B", "A", "C", "B", "D","D",
-      "C", "B", "B", "B", "B","C", "D", "B", "C","B",
-      "C", "A", "A", "C", "C", "D", "D", "B", "B","B",
-      "A", "D", "B", "D", "C","D", "C", "C", "D","A",
-      "C", "B", "D", "B", "B","A", "A", "C", "A", "C",
-
-      "A", "B", "C", "A", "A", "D", "A", "A", "A","D",
-      "B","C", "C", "B", "A", "B", "D", "B", "A","B",
-      "C","C", "C", "C", "A", "D", "B", "A","C","D",
-      "C", "A", "B","A", "C", "A", "A", "C","C","D",
-
-      "A", "B", "C", "D", "B", "D", "B", "A", "D","D",
-      "B", "C", "C", "A", "B", "B","B", "C", "C","C",
-      "B", "C", "A", "C", "C", "D", "C", "C", "C","A",
-      "D", "D", "B", "C", "C", "B", "C","B" ,"B","C"
-       ];
-     // Dynamically inject exam details into the HTML
-  document.getElementById("examTimerItem").innerHTML = `1. The exam duration is <strong>${examTimer} minutes</strong>.`;
-  document.getElementById("examquestionnumItem").innerHTML = `2. The exam consists of <strong>${numberofquestions} multiple-choice questions</strong>.`;
-  document.getElementById("exammarksItem").innerHTML = `3. Each question carries <strong>${positivemark} marks</strong>, and there is a <strong>${negativemark} mark penalty</strong> for incorrect answers.`;
-
-  const generateBtn = document.getElementById("generateBtn");
-  const agreeCheckbox = document.getElementById("agreeCheckbox");
-
-  // Event listener for the checkbox change
-  agreeCheckbox.addEventListener("change", () => {
-    // Enable the Start button only if the checkbox is checked
-    generateBtn.disabled = !agreeCheckbox.checked;
-  });
-
-  // Click event for "Start Mock Test" button
-  generateBtn.addEventListener("click", async () => {
-    const studentName = document.getElementById("userName").value.trim();
-
-    if (!studentName) {
-      alert("Please enter your name.");
-      return;
-    }
-     
-    let found = false;
-
-for (let i =0; i < students.length; i++){
-  if(students[i].toLowerCase() === studentName.toLowerCase()){
-    found = true;
-    break;
-  }
-}
-
-if(!found){
-  window.location.href = "../../payment.html";
-  return;
-}
-
-    // Store all data in localStorage
-    localStorage.setItem("studentName", studentName);
-    localStorage.setItem("examName", examName);
-    localStorage.setItem("examTimer", examTimer);
-    localStorage.setItem("examfolder", examfolder);
-    localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
-
-    // Send data to Google Sheets via Apps Script (without correctAnswers)
-    const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec'; // Replace with your Google Apps Script URL
-    const formData = new FormData();
-    formData.append('name', studentName);
-    formData.append('examName', examName);
-    formData.append('examTimer', examTimer);
-    formData.append('examfolder', examfolder);
-
-    try {
-       // Prompt to confirm before starting the exam
-       if (confirm("Are you sure to start the mock test!")) {
-        // Redirect to exam page
-        window.location.href = "exam.html";
-      }
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData
-      });
-      const result = await response.text();
-      console.log(result); // You can log the response to see if it's successful
-
-      
-    } catch (error) {
-      alert("There was an error saving your data.");
-      console.error(error);
-    }
-  });
-});
-  </script>
+        const examName = "Eapcet";
+        const examTimer = 180;
+        const examfolder = "Full Test 2";
+        const numberofquestions = 160;
+        const positivemark = 1;
+        const negativemark = 0;
+        
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        // Example hardcoded answers (you can replace this with actual answer keys)
+        const correctAnswers = [
+            "B", "A", "C", "C", "D", "D", "C", "B", "B", "C",
+            "A", "D", "B", "A", "D", "B", "D", "D", "D", "C",
+            "B", "D", "A", "B", "D", "C", "C", "D", "C", "B",
+            "B", "B", "C", "B", "B", "A", "C", "B", "D", "D",
+            "C", "B", "B", "B", "B", "C", "D", "B", "C", "B",
+            "C", "A", "A", "C", "C", "D", "D", "B", "B", "B",
+            "A", "D", "B", "D", "C", "D", "C", "C", "D", "A",
+            "C", "B", "D", "B", "B", "A", "A", "C", "A", "C",
+            "A", "B", "C", "A", "A", "D", "A", "A", "A", "D",
+            "B", "C", "C", "B", "A", "B", "D", "B", "A", "B",
+            "C", "C", "C", "C", "A", "D", "B", "A", "C", "D",
+            "C", "A", "B", "A", "C", "A", "A", "C", "C", "D",
+            "A", "B", "C", "D", "B", "D", "B", "A", "D", "D",
+            "B", "C", "C", "A", "B", "B", "B", "C", "C", "C",
+            "B", "C", "A", "C", "C", "D", "C", "C", "C", "A",
+            "D", "D", "B", "C", "C", "B", "C", "B", "B", "C"
+        ];
+    
+        // Dynamically inject exam details into the HTML
+        document.getElementById("examTimerItem").innerHTML = `1. The exam duration is <strong>${examTimer} minutes</strong>.`;
+        document.getElementById("examquestionnumItem").innerHTML = `2. The exam consists of <strong>${numberofquestions} multiple-choice questions</strong>.`;
+        document.getElementById("exammarksItem").innerHTML = `3. Each question carries <strong>${positivemark} marks</strong>, and there is a <strong>${negativemark} mark penalty</strong> for incorrect answers.`;
+    
+        const generateBtn = document.getElementById("generateBtn");
+        const agreeCheckbox = document.getElementById("agreeCheckbox");
+    
+        // Event listener for the checkbox change
+        agreeCheckbox.addEventListener("change", () => {
+            generateBtn.disabled = !agreeCheckbox.checked;
+        });
+    
+        // Click event for "Start Mock Test" button
+        generateBtn.addEventListener("click", async () => {
+            const studentName = document.getElementById("userName").value.trim();
+    
+            if (!studentName) {
+                alert("Please enter your name.");
+                return;
+            }
+    
+            // Normalize both input and stored names for comparison
+            const normalizedInput = studentName.toLowerCase().trim();
+            let found = students.some(student => student.toLowerCase().trim() === normalizedInput);
+    
+            if (!found) {
+                alert("Name not found in the student list. Redirecting to payment page.");
+                window.location.href = "../../payment.html";
+                return;
+            }
+    
+            // Store all data in localStorage
+            localStorage.setItem("studentName", studentName);
+            localStorage.setItem("examName", examName);
+            localStorage.setItem("examTimer", examTimer);
+            localStorage.setItem("examfolder", examfolder);
+            localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
+    
+            // Send data to Google Sheets via Apps Script (without correctAnswers)
+            const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec';
+            const formData = new FormData();
+            formData.append('name', studentName);
+            formData.append('examName', examName);
+            formData.append('examTimer', examTimer);
+            formData.append('examfolder', examfolder);
+    
+            try {
+                if (confirm("Are you sure to start the mock test!")) {
+                    window.location.href = "exam.html";
+                }
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.text();
+                console.log(result);
+            } catch (error) {
+                alert("There was an error saving your data.");
+                console.error(error);
+            }
+        });
+    });
+    </script>
 
 </body>
 </html>
