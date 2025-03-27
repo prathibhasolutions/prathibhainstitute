@@ -145,7 +145,7 @@
   
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="../names.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
     const examName = "Eapcet-Vector Algebra";
@@ -154,9 +154,7 @@
     const numberofquestions = 15;
     const positivemark = 1;
     const negativemark = 0;
-    // Retrieve students from localStorage and log for debugging
-    let students = JSON.parse(localStorage.getItem("students")) || [];
-        console.log("Students array from localStorage:", students);
+    
     const correctAnswers = [
       "B", "D", "B", "B", "D", "C", "A", "D", "D", "A",
       "A", "C", "A", "C", "A", "B", "C", "B", "C", "B",
@@ -184,64 +182,52 @@
     generateBtn.disabled = !agreeCheckbox.checked;
   });
 
-  // Handle "Start Mock Test" button click
- generateBtn.addEventListener("click", async () => {
-            const studentName = document.getElementById("userName").value.trim();
-            console.log("Entered name:", studentName);
+  // Click event for "Start Mock Test" button
+  generateBtn.addEventListener("click", async () => {
+    const studentName = document.getElementById("userName").value.trim();
+
+    if (!studentName) {
+      alert("Please enter your name.");
+      return;
+    }
     
-            if (!studentName) {
-                alert("Please enter your name.");
-                return;
-            }
-    
-            // Normalize names for comparison
-            const normalizedInput = studentName.toLowerCase().trim();
-            const found = students.some(student => {
-                const normalizedStudent = student.toLowerCase().trim();
-                console.log(`Comparing: "${normalizedInput}" with "${normalizedStudent}"`);
-                return normalizedStudent === normalizedInput;
-            });
-    
-            if (!found) {
-                
-                window.location.href = "../../payment.html";
-                return;
-            }
-    
-            console.log("Name found! Proceeding with exam setup.");
-    
-            // Store data in localStorage
-            localStorage.setItem("studentName", studentName);
-            localStorage.setItem("examName", examName);
-            localStorage.setItem("examTimer", examTimer);
-            localStorage.setItem("examfolder", examfolder);
-            localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
-    
-            // Send data to Google Sheets
-            const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec';
-            const formData = new FormData();
-            formData.append('name', studentName);
-            formData.append('examName', examName);
-            formData.append('examTimer', examTimer);
-            formData.append('examfolder', examfolder);
-    
-            try {
-                if (confirm("Are you sure to start the mock test?")) {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        body: formData
-                    });
-                    const result = await response.text();
-                    console.log("Google Sheets response:", result);
-                    window.location.href = "exam.html";
-                }
-            } catch (error) {
-                alert("Error saving data. Please try again.");
-                console.error("Fetch error:", error);
-            }
-        });
-    });
-    </script>
+
+    // Store all data in localStorage
+    localStorage.setItem("studentName", studentName);
+    localStorage.setItem("examName", examName);
+    localStorage.setItem("examTimer", examTimer);
+    localStorage.setItem("examfolder", examfolder);
+    localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
+
+    // Send data to Google Sheets via Apps Script (without correctAnswers)
+    const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec'; // Replace with your Google Apps Script URL
+    const formData = new FormData();
+    formData.append('name', studentName);
+    formData.append('examName', examName);
+    formData.append('examTimer', examTimer);
+    formData.append('examfolder', examfolder);
+
+    try {
+       // Prompt to confirm before starting the exam
+       if (confirm("Are you sure to start the mock test!")) {
+        // Redirect to exam page
+        window.location.href = "exam.html";
+      }
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.text();
+      console.log(result); // You can log the response to see if it's successful
+
+     
+    } catch (error) {
+      alert("There was an error saving your data.");
+      console.error(error);
+    }
+  });
+});
+  </script>
 
 </body>
 </html>
