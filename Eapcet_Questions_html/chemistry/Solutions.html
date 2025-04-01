@@ -145,7 +145,7 @@
   
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  
+  <script src="names.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
     const examName = "Eapcet-Solutions";
@@ -184,7 +184,11 @@
       alert("Please enter your name.");
       return;
     }
-    
+    if (!isStudentAllowed(studentName)) {
+        alert("Your name is not registered for this mock test.");
+        window.location.href = "../../../payment.html"; // Redirect to another page
+        return;
+      }
 
     // Store all data in localStorage
     localStorage.setItem("studentName", studentName);
