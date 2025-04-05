@@ -157,19 +157,19 @@
     
     // Example hardcoded answers (you can replace this with actual answer keys)
     const correctAnswers = [
-      "C", "B", "C", "A", "D", "D", "B", "A", "B","D",
-      "C", "A", "D", "D", "C", "D", "D", "D", "C","D",
+      "C", "B", "C", "A", "D", "D", "B", "C", "B","D",
+      "C", "A", "D", "D", "A", "C", "D", "D", "C","D",
       "C", "D", "D", "D", "D", "C", "C", "C","D","D",
       "B", "B", "B", "B", "C","B", "D", "B", "A","D",
       "D", "B", "C", "B", "A", "B", "B", "A", "B","D",
 
       "A", "C", "C", "D", "B", "A", "C", "C", "C","A",
-      "B", "A", "A", "C", "C","A", "B", "A","D","B",
+      "B", "A", "A", "C", "A","B", "D", "A","D","A",
       "B","A", "A", "B", "B",
 
-      "B", "B", "C", "D", "D", "B", "B", "D", "D","B",
-      "D", "A", "A", "C", "B","A", "B", "D","A","D",
-      "B","D", "C", "B", "A"
+      "B", "C", "C", "D", "D", "B", "B", "D", "A","B",
+      "D", "A", "A", "C", "B","B", "B", "D","A","D",
+      "B","D", "C", "B", "B"
 
       
        ];
@@ -206,6 +206,7 @@
 
     // Send data to Google Sheets via Apps Script (without correctAnswers)
     const url = 'https://script.google.com/macros/s/AKfycbyIUISxPlsaAe_GKDMiV-3dzy_fBWvPapti1LH_W0GPoRxJH30X98pu5pXV00sh58la/exec'; // Replace with your Google Apps Script URL
+    
     const formData = new FormData();
     formData.append('name', studentName);
     formData.append('examName', examName);

@@ -64,10 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
       storedImages.push({ data: `${examfolder}/${i + 1}.png`, index: i });
     }
     
-    // If more than 20 questions, pick 20 random ones
-    if (storedImages.length > 15) {
-      storedImages = storedImages.sort(() => 0.5 - Math.random()).slice(0, 100);
-    }
     
     
     localStorage.setItem("selectedQuestions", JSON.stringify(storedImages));
