@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Basics Quiz</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Python</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script><!--js file-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .result {
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    .header {
+    background-color: rgb(23, 41, 84);
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 10px 0;
+}
+
+.logo {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Maintains aspect ratio */
+    border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center; /* Ensure the logo stays centered on small devices */
+    }
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #footer {
+    background-color: rgb(23, 41, 84); /* White background */
+    color: #ffffff; /* Dark blue text color */
+    padding: 10px 0;}
+  </style>
+</head>
+<body>
+<section class="header" style="font-family: sans-serif;color: rgb(23, 41, 84);">
+    <nav>
+        <img src="../../logo.png" alt="" class="logo">    
+    </nav>   
+  </section>
+  <br><br><br><br><br><br>
+<div class="quiz-container">
+  <h2 class="mb-4">Python Basics, Operators & Data Types - Quiz</h2>
+  <form id="quizForm">
+    <!-- Quiz questions go here (unchanged, truncated for brevity) -->
+    <!-- ...questions... -->
+
+     <div class="question">
+      <p><strong>1. What will be the output of: <code>if 5 &gt; 3: print("Yes")</code></strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A"> A. No</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="B"> B. Yes</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C"> C. Error</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="D"> D. 5 &gt; 3</div>
+    </div>
+    <div class="question">
+      <p><strong>2. What keyword is used for an alternative condition?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A"> A. else</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="B"> B. elseif</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="C"> C. elif</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="D"> D. then</div>
+    </div>
+    <div class="question">
+      <p><strong>3. Which of the following will give a syntax error?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="A"> A. if x == 10: print(x)</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="B"> B. if x == 10 print(x)</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="C"> C. if x != 5: print("Not 5")</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="D"> D. if x &lt; 20: print("OK")</div>
+    </div>
+    <div class="question">
+      <p><strong>4. What is the output of <code>if False: print("Hello")</code></strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="A"> A. Hello</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="B"> B. False</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="C"> C. Nothing</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="D"> D. Error</div>
+    </div>
+    <div class="question">
+      <p><strong>5. Which operator checks for equality?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="A"> A. =</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="B"> B. ==</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="C"> C. !=</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="D"> D. :=</div>
+    </div>
+
+    <div class="question">
+  <p><strong>6. What is the result of <code>if 3 == 3.0:</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="A"> A. True</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="B"> B. False</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="C"> C. Error</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="D"> D. None</div>
+</div>
+<div class="question">
+  <p><strong>7. Which statement is correct for: <code>if x:</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="A"> A. Error</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="B"> B. x must be True or evaluate to True</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="C"> C. x must be False</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="D"> D. Not valid syntax</div>
+</div>
+<div class="question">
+  <p><strong>8. Which of these is a valid way to write multiple conditions?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="A"> A. if a == b or c == d:</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="B"> B. if a = b and c = d:</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="C"> C. if (a and b) == (c and d):</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="D"> D. if (a or b) != (c or d)</div>
+</div>
+<div class="question">
+  <p><strong>9. What is the output of: <code>if not False: print("Yes")</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="A"> A. No</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="B"> B. Yes</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="C"> C. Nothing</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="D"> D. Error</div>
+</div>
+<div class="question">
+  <p><strong>10. What does <code>else</code> block do?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="A"> A. Executes only if <code>if</code> is True</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="B"> B. Executes only if <code>if</code> is False</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="C"> C. Executes regardless of condition</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="D"> D. Always skipped</div>
+</div>
+
+<div class="question">
+  <p><strong>11. What will the output be for:<br><code>if 0: print('Yes')</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="A"> A. Yes</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="B"> B. No</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="C"> C. Error</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="D"> D. Nothing</div>
+</div>
+<div class="question">
+  <p><strong>12. Which keyword is used for multiple conditions in Python?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="A"> A. and</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="B"> B. or</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="C"> C. not</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="D"> D. all of the above</div>
+</div>
+<div class="question">
+  <p><strong>13. What will happen if you forget the colon ':' after an if condition?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="A"> A. Code runs normally</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="B"> B. SyntaxError</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="C"> C. RuntimeError</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="D"> D. Logical Error</div>
+</div>
+<div class="question">
+  <p><strong>14. What will be output of:<br><code>if 5 &lt; 10: print('Yes') else: print('No')</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="A"> A. Yes</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="B"> B. No</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="C"> C. Error</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="D"> D. Nothing</div>
+</div>
+<div class="question">
+  <p><strong>15. Which one is NOT a valid boolean expression?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="A"> A. True and False</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="B"> B. 5 &lt; 3</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="C"> C. if x == 5</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="D"> D. x != y</div>
+</div>
+<div class="question">
+  <p><strong>16. Which block runs if the if and elif conditions are False?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="A"> A. if</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="B"> B. else</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="C"> C. elif</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="D"> D. None</div>
+</div>
+<div class="question">
+  <p><strong>17. What will <code>if None:</code> evaluate to?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="A"> A. True</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="B"> B. False</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="C"> C. None</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="D"> D. Error</div>
+</div>
+<div class="question">
+  <p><strong>18. Which of these is the correct syntax to check if two values are not equal?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="A"> A. if a != b:</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="B"> B. if a =! b:</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="C"> C. if a ==! b:</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="D"> D. if a = b:</div>
+</div>
+<div class="question">
+  <p><strong>19. How do you write an if-else on one line in Python?</strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="A"> A. if a > b: print(a) else: print(b)</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="B"> B. print(a) if a > b else print(b)</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="C"> C. print(a if a > b else b)</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="D"> D. Both B and C</div>
+</div>
+<div class="question">
+  <p><strong>20. What is the output of:<br><code>if True and False: print('Yes')</code></strong></p>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="A"> A. Yes</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="B"> B. No</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="C"> C. Nothing</div>
+  <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="D"> D. Error</div>
+</div>
+    <button type="button" class="btn btn-success mt-3" onclick="checkAnswers()">Submit Quiz</button>
+    <p class="mt-3 result" id="result"></p>
+    <div id="feedback"></div>
+  </form>
+</div>
+
+<script>
+  const correctAnswers = {
+    q1: "B", q2: "B", q3: "B", q4: "B", q5: "C",
+    q6: "C", q7: "C", q8: "C", q9: "D", q10: "D",
+    q11: "C", q12: "B", q13: "B", q14: "B", q15: "A",
+    q16: "B", q17: "B", q18: "C", q19: "B", q20: "B"
+  };
+
+  function checkAnswers() {
+    let score = 0;
+    let feedbackHTML = "<hr><h4>Feedback:</h4><ul class='list-group'>";
+
+    for (let i = 1; i <= 20; i++) {
+      let qName = `q${i}`;
+      let selected = document.querySelector(`input[name=${qName}]:checked`);
+      if (selected) {
+        let answer = selected.value;
+        if (answer === correctAnswers[qName]) {
+          score++;
+          feedbackHTML += `<li class='list-group-item correct'>Question ${i}: Correct</li>`;
+        } else {
+          feedbackHTML += `<li class='list-group-item incorrect'>Question ${i}: Wrong (Correct: ${correctAnswers[qName]})</li>`;
+        }
+      } else {
+        feedbackHTML += `<li class='list-group-item incorrect'>Question ${i}: Not Attempted (Correct: ${correctAnswers[qName]})</li>`;
+      }
+    }
+
+    feedbackHTML += "</ul>";
+    document.getElementById("result").innerText = `You scored ${score} out of 20.`;
+    document.getElementById("feedback").innerHTML = feedbackHTML;
+  }
+</script>
+<br><br>
+    <footer id="footer" class="footer">
+        
+        <div class="container text-center">
+            <p>&copy; 2024 Prathibha Institute. All rights reserved.</p>
+            <p>Designed by <a href="https://www.prathibhasolutions.com" style="color:aquamarine;">Prathibha Solutions</a></p>
+        </div> 
+    </footer>
+</body>
+</html>

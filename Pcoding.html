@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Python Programming Tasks - Basics & More</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Python</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script><!--js file-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f0f4f8;
+      padding: 30px;
+    }
+    .container {
+      max-width: 900px;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 25px;
+    }
+    .task {
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      border-left: 5px solid #0d6efd;
+      background: #e9f0ff;
+      border-radius: 6px;
+    }
+    .header {
+    background-color: rgb(23, 41, 84);
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 10px 0;
+}
+
+.logo {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Maintains aspect ratio */
+    border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center; /* Ensure the logo stays centered on small devices */
+    }
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #footer {
+    background-color: rgb(23, 41, 84); /* White background */
+    color: #ffffff; /* Dark blue text color */
+    padding: 10px 0;}
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h2>Python Programming Tasks</h2>
+
+    <h4>Basics</h4>
+    <div class="task">1. Write a Python program to print "Hello, World!"</div>
+    <div class="task">2. Write a program to take user input and print it.</div>
+    <div class="task">3. Write a program to swap two variables without using a temporary variable.</div>
+    <div class="task">4. Write a program to check if a number is positive, negative, or zero.</div>
+    <div class="task">5. Write a program to calculate the area of a circle given its radius.</div>
+
+    <h4>Operators</h4>
+    <div class="task">6. Write a program to demonstrate the use of arithmetic operators (+, -, *, /, %, //, **).</div>
+    <div class="task">7. Write a program to compare two numbers using relational operators and print the results.</div>
+    <div class="task">8. Write a program to use logical operators (and, or, not) with boolean variables.</div>
+    <div class="task">9. Write a program to demonstrate assignment operators (+=, -=, *=, /=).</div>
+    <div class="task">10. Write a program to check if a number is even or odd using the modulus operator.</div>
+
+    <h4>Data Types</h4>
+    <div class="task">11. Write a program to find the type of variables holding int, float, string, and boolean values.</div>
+    <div class="task">12. Write a program to convert a string to integer and float and demonstrate errors when conversion fails.</div>
+    <div class="task">13. Write a program to concatenate two strings and print the result.</div>
+    <div class="task">14. Write a program to demonstrate typecasting between int, float, and string.</div>
+    <div class="task">15. Write a program to create a list and print its length and elements.</div>
+
+    <h4>If-Else Statements</h4>
+    <div class="task">16. Write a program to find the largest of three numbers using if-else statements.</div>
+    <div class="task">17. Write a program to check if a character is a vowel or consonant.</div>
+    <div class="task">18. Write a program to determine if a year is a leap year or not.</div>
+    <div class="task">19. Write a program to calculate the grade of a student based on marks using if-elif-else.</div>
+    <div class="task">20. Write a program to check whether a number is divisible by 3 and 5 both.</div>
+
+    <h4>Loops</h4>
+    <div class="task">21. Write a program to print numbers from 1 to 10 using a for loop.</div>
+    <div class="task">22. Write a program to calculate the factorial of a number using a while loop.</div>
+    <div class="task">23. Write a program to print the multiplication table of a number using a for loop.</div>
+    <div class="task">24. Write a program to print all the even numbers between 1 and 50 using a loop.</div>
+    <div class="task">25. Write a program to find the sum of all numbers in a list using a loop.</div>
+  
+<h4>Pattern Printing</h4>
+
+<div class="task">
+  <p><strong>26. Write a program to print the following pattern:</strong></p>
+  <pre>
+*
+* *
+* * *
+* * * *
+* * * * *
+  </pre>
+</div>
+
+<div class="task">
+  <p><strong>27. Write a program to print a right-aligned triangle pattern of stars:</strong></p>
+  <pre>
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+  </pre>
+</div>
+
+<div class="task">
+  <p><strong>28. Write a program to print a number pyramid:</strong></p>
+  <pre>
+1
+2 2
+3 3 3
+4 4 4 4
+  </pre>
+</div>
+
+<div class="task">
+  <p><strong>29. Write a program to print an inverted triangle pattern:</strong></p>
+  <pre>
+* * * * *
+* * * *
+* * *
+* *
+*
+  </pre>
+</div>
+
+<div class="task">
+  <p><strong>30. Write a program to print a hollow square of stars (n = 5):</strong></p>
+  <pre>
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+  </pre>
+</div>
+
+
+</div>
+</body>
+</html>

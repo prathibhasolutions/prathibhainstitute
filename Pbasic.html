@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Basics Quiz</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Python</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script><!--js file-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .result {
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+     .header {
+    background-color: rgb(23, 41, 84);
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 10px 0;
+}
+
+.logo {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Maintains aspect ratio */
+    border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center; /* Ensure the logo stays centered on small devices */
+    }
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #footer {
+    background-color: rgb(23, 41, 84); /* White background */
+    color: #ffffff; /* Dark blue text color */
+    padding: 10px 0;}
+  </style>
+</head>
+<body>
+  <section class="header" style="font-family: sans-serif;color: rgb(23, 41, 84);">
+    <nav>
+        <img src="../../logo.png" alt="" class="logo">    
+    </nav>   
+  </section>
+  <br><br><br><br><br><br>
+
+<div class="quiz-container">
+  <h2 class="mb-4">Python Basics, Operators & Data Types - Quiz</h2>
+  <form id="quizForm">
+    <!-- Quiz questions go here (unchanged, truncated for brevity) -->
+    <!-- ...questions... -->
+
+    <div class="question">
+      <p><strong>1. What is the correct file extension for Python files?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A"> A. .pt</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="B"> B. .py</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C"> C. .python</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="D"> D. .pyt</div>
+    </div>
+    <div class="question">
+      <p><strong>2. What is the output of <code>print(type(3.14))</code>?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A"> A. &lt;class 'int'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="B"> B. &lt;class 'float'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="C"> C. &lt;class 'str'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="D"> D. &lt;class 'bool'&gt;</div>
+    </div>
+    <div class="question">
+      <p><strong>3. What operator is used for exponentiation in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="A"> A. ^</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="B"> B. **</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="C"> C. %</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="D"> D. *</div>
+    </div>
+    <div class="question">
+      <p><strong>4. Which of the following is a mutable data type?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="A"> A. tuple</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="B"> B. list</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="C"> C. str</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="D"> D. int</div>
+    </div>
+    <div class="question">
+      <p><strong>5. Which of the following is used to define a block of code in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="A"> A. Curly braces</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="B"> B. Parentheses</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="C"> C. Indentation</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="D"> D. Semicolon</div>
+    </div>
+    <div class="question">
+      <p><strong>6. Which of these is a boolean value in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="A"> A. yes</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="B"> B. TRUE</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="C"> C. True</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="D"> D. 1</div>
+    </div>
+    <div class="question">
+      <p><strong>7. What does the <code>//</code> operator do in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="A"> A. Floating-point division</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="B"> B. Modulus</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="C"> C. Floor division</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="D"> D. Exponentiation</div>
+    </div>
+    <div class="question">
+      <p><strong>8. What is the result of <code>type("10")</code>?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="A"> A. &lt;class 'int'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="B"> B. &lt;class 'float'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="C"> C. &lt;class 'str'&gt;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="D"> D. &lt;class 'bool'&gt;</div>
+    </div>
+    <div class="question">
+      <p><strong>9. Which data type is used to store True or False values?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="A"> A. int</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="B"> B. str</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="C"> C. float</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="D"> D. bool</div>
+    </div>
+    <div class="question">
+      <p><strong>10. Which one is the correct way to assign a value to a variable in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="A"> A. let x = 10</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="B"> B. int x = 10</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="C"> C. x := 10</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="D"> D. x = 10</div>
+    </div>
+
+    <!-- Additional 10 questions -->
+    <div class="question">
+      <p><strong>11. What keyword is used to start a loop in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="A"> A. loop</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="B"> B. repeat</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="C"> C. for</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="D"> D. iterate</div>
+    </div>
+    <div class="question">
+      <p><strong>12. Which function is used to get input from the user in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="A"> A. scan()</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="B"> B. input()</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="C"> C. get()</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="D"> D. read()</div>
+    </div>
+    <div class="question">
+      <p><strong>13. What is the output of <code>len("Hello")</code>?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="A"> A. 4</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="B"> B. 5</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="C"> C. 6</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="D"> D. Error</div>
+    </div>
+    <div class="question">
+      <p><strong>14. What will be the output of: <code>print(2 * 3 + 5)</code>?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="A"> A. 16</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="B"> B. 11</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="C"> C. 21</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="D"> D. 10</div>
+    </div>
+    <div class="question">
+      <p><strong>15. What will <code>print("python".upper())</code> display?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="A"> A. PYTHON</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="B"> B. python</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="C"> C. Python</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="D"> D. Error</div>
+    </div>
+    <div class="question">
+      <p><strong>16. Which of the following is a valid variable name?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="A"> A. 2value</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="B"> B. value_2</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="C"> C. value-2</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q16" value="D"> D. @value</div>
+    </div>
+    <div class="question">
+      <p><strong>17. Which of the following is not a keyword in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="A"> A. pass</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="B"> B. eval</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="C"> C. break</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q17" value="D"> D. continue</div>
+    </div>
+    <div class="question">
+      <p><strong>18. How do you start a comment in Python?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="A"> A. //</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="B"> B. --</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="C"> C. #</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q18" value="D"> D. /*</div>
+    </div>
+    <div class="question">
+      <p><strong>19. What does <code>print(bool("False"))</code> output?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="A"> A. False</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="B"> B. True</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="C"> C. Error</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q19" value="D"> D. None</div>
+    </div>
+    <div class="question">
+      <p><strong>20. Which operator is used for string concatenation?</strong></p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="A"> A. *</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="B"> B. +</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="C"> C. &amp;</div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q20" value="D"> D. ,</div>
+    </div>
+    <button type="button" class="btn btn-success mt-3" onclick="checkAnswers()">Submit Quiz</button>
+    <p class="mt-3 result" id="result"></p>
+    <div id="feedback"></div>
+  </form>
+</div>
+
+<script>
+  const correctAnswers = {
+    q1: "B", q2: "B", q3: "B", q4: "B", q5: "C",
+    q6: "C", q7: "C", q8: "C", q9: "D", q10: "D",
+    q11: "C", q12: "B", q13: "B", q14: "B", q15: "A",
+    q16: "B", q17: "B", q18: "C", q19: "B", q20: "B"
+  };
+
+  function checkAnswers() {
+    let score = 0;
+    let feedbackHTML = "<hr><h4>Feedback:</h4><ul class='list-group'>";
+
+    for (let i = 1; i <= 20; i++) {
+      let qName = `q${i}`;
+      let selected = document.querySelector(`input[name=${qName}]:checked`);
+      if (selected) {
+        let answer = selected.value;
+        if (answer === correctAnswers[qName]) {
+          score++;
+          feedbackHTML += `<li class='list-group-item correct'>Question ${i}: Correct</li>`;
+        } else {
+          feedbackHTML += `<li class='list-group-item incorrect'>Question ${i}: Wrong (Correct: ${correctAnswers[qName]})</li>`;
+        }
+      } else {
+        feedbackHTML += `<li class='list-group-item incorrect'>Question ${i}: Not Attempted (Correct: ${correctAnswers[qName]})</li>`;
+      }
+    }
+
+    feedbackHTML += "</ul>";
+    document.getElementById("result").innerText = `You scored ${score} out of 20.`;
+    document.getElementById("feedback").innerHTML = feedbackHTML;
+  }
+</script>
+<br><br>
+    <footer id="footer" class="footer">
+        
+        <div class="container text-center">
+            <p>&copy; 2024 Prathibha Institute. All rights reserved.</p>
+            <p>Designed by <a href="https://www.prathibhasolutions.com" style="color:aquamarine;">Prathibha Solutions</a></p>
+        </div> 
+    </footer>
+</body>
+</html>
