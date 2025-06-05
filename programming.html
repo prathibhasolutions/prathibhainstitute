@@ -19,7 +19,141 @@
             background-color: #f4f8fb;
             color: #333;
         }
+         .card {
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensures the card takes up full height */
+        }
 
+        .card-body {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 90px; /* Fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Topic title color */
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333; /* Dark color for title */
+        }
+
+        /* Card description text color */
+        .card-text {
+            font-size: 0.9rem;
+            color: #666; /* Lighter gray for text */
+            margin-bottom: 10px;
+        }
+
+        .card-footer {
+            font-size: 0.9rem;
+            font-weight: bold;
+            background-color: transparent;
+            border-top: none;
+            color: #333; /* Dark color for footer */
+        }
+
+        /* Remove default link styling */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover .card-body {
+            transform: scale(1.05);
+        }
+
+        /* Gradient Card Background */
+        .C-card {
+            background: linear-gradient(135deg, #28a745, #4caf50); /* Green gradient */
+        }
+
+        .python-card {
+            background: linear-gradient(135deg, #19d0e8, #2269e2);
+        }
+
+        
+        
+
+        /* Subject heading colors */
+        .C-heading {
+            color: #28a745; /* Green color for Mathematics */
+        }
+
+        .python-heading {
+            color: #5fcb11; /* Purple color for Physics */
+        }
+
+        
+    
+                .custom-free-btn {
+                    width: 50px; /* Set fixed width */
+                    height: 35px; /* Set fixed height */
+                    font-size: 12px; /* Reduce font size */
+                    padding: 2px 5px; /* Adjust padding */
+                }
+        
+            
+        .button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if needed) */
+    width: 100%; /* Ensures it spans the full width */
+    margin-top: 30px; /* Adjust spacing as needed */
+}
+.custom-btn {
+    border: none;
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+@media (max-width: 576px) {
+    .custom-btn {
+        font-size: 14px;  /* Slightly smaller font */
+        padding: 4px 8px;  /* Reduce padding */
+        margin: 2px;  /* Reduce space between buttons */
+    }
+
+    .card-footer .d-flex {
+        gap: 5px; /* Reduce gap between buttons */
+    }
+}
+
+
+
+/* Practice Button - Green */
+.custom-btn.practice {
+    background-color: #097474; /* Custom green */
+    color: white;
+}
+
+.custom-btn.practice:hover {
+    background-color: #053737; /* Darker green */
+}
+
+/* Test Button - Red */
+.custom-btn.test {
+    background-color: #028106; /* Custom red */
+    color: white;
+}
+
+.custom-btn.test:hover {
+    background-color: #053737; /* Darker red */
+}
         
 
     </style>
@@ -125,16 +259,148 @@
        <div class="container mt-5">
     <h1 class="text-center mb-4">Select Your Language</h1>
 
-    <!-- Buttons Side by Side -->
-    <div class="row justify-content-center mb-4">
-        <div class="col-md-3">
-            <button class="btn btn-primary w-100" onclick="window.location.href='c_language.html'">C Language</button>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary w-100" onclick="window.location.href='pythonexam.html'">Python</button>
+   <!-- Buttons Side by Side -->
+<div class="row justify-content-center mb-4">
+    <div class="col-12 col-sm-6 col-md-3 mb-3">
+        <button class="btn btn-warning w-100" onclick="toggleSubcategories('C')"><b>C Language</b></button>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3 mb-3">
+        <button class="btn btn-warning w-100" onclick="toggleSubcategories('python')"><b>Python</b></button>
+    </div>
+    <!-- <div class="col-md-3">
+        <button class="btn btn-warning w-100" onclick="toggleSubcategories('java')">Java</button>
+    </div> -->
+    <!-- Add more buttons like Java, HTML in future -->
+</div>
+
+<!-- C Language Content -->
+<div id="C-content" style="display: none; margin-top: 10px;">
+    <div class="container-fluid">
+       
+
+       
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+
+            <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Basics</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                       
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
+                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
         </div>
     </div>
 </div>
+
+<!-- Python Content -->
+<div id="python-content" style="display: none; margin-top: 10px;">
+    <div class="container-fluid">
+       
+        <!-- Duplicate card structure here for Python topics -->
+        <!-- Example row -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Basics</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                       
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
+                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IF/ELSE</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                       
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
+                            <button class="custom-btn test" onclick="window.location.href='Pif_else.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">LOOPS</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                       
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
+                            <button class="custom-btn test" onclick="window.location.href='PLoops.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Coding</h5>
+                        
+                    </div>
+                    <div class="card-footer text-center">
+                       
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
+                            <button class="custom-btn test" onclick="window.location.href='Pcoding.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+</div>
+<!-- Java Content -->
+<!-- <div id="java-content" style="display: none; margin-top: 10px;">
+    <div class="container-fluid">
+        <h1 class="text-center mb-4">Python - Subjects and Topic-Wise Questions</h1>
+       
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="col mb-3">
+                <div class="card math-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Loops in Python</h5>
+                        <button class="btn btn-danger btn-sm mt-2 custom-free-btn">Free</button>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-2">Weightage:<br>Practice-based</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button>
+                            <button class="custom-btn test" onclick="window.location.href='python_loops_test.html'">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div> -->
+
+
 
         
 
@@ -152,7 +418,20 @@
 
     </main>
 
-    
+  <script>
+    function toggleSubcategories(showId) {
+        var sections = ["C", "python"]; // Add more ids as needed
+        sections.forEach(id => {
+            var content = document.getElementById(id + '-content');
+            if (content) {
+                content.style.display = (id === showId) ? 
+                    ((content.style.display === "none" || content.style.display === "") ? "block" : "none") 
+                    : "none";
+            }
+        });
+    }
+</script>
+  
 
 <footer id="footer" class="footer">
         <div class="footer-top">
