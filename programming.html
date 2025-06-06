@@ -84,7 +84,7 @@
         .python-card {
             background: linear-gradient(135deg, #19d0e8, #2269e2);
         }
-
+        
         
         
 
@@ -147,7 +147,7 @@
 
 /* Test Button - Red */
 .custom-btn.test {
-    background-color: #028106; /* Custom red */
+    background-color: #c00505; /* Custom red */
     color: white;
 }
 
@@ -280,9 +280,22 @@
 
        
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <!-- Notes Card (PDF Viewer Button) -->
+            <div class="col mb-3">
+                <div class="card C-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Notes</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <button class="custom-btn test" onclick="window.open('C Language.pdf', '_blank')">View Notes</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
 
             <div class="col mb-3">
-                <div class="card math-card">
+                <div class="card C-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Basics</h5>
                         
@@ -291,12 +304,12 @@
                        
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
-                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Test</button>
+                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Take Test</button>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
            
 
         </div>
@@ -311,7 +324,19 @@
         <!-- Example row -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
             <div class="col mb-3">
-                <div class="card math-card">
+                <div class="card python-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Notes</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <button class="custom-btn test" onclick="window.open('Python.pdf', '_blank')">View Notes</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col mb-3">
+                <div class="card python-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Basics</h5>
                         
@@ -320,13 +345,13 @@
                        
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
-                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Test</button>
+                            <button class="custom-btn test" onclick="window.location.href='Pbasic.html'">Take Test</button>
                         </div>
                     </div>
                 </div>
             </div>
              <div class="col mb-3">
-                <div class="card math-card">
+                <div class="card python-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">IF/ELSE</h5>
                         
@@ -335,13 +360,13 @@
                        
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
-                            <button class="custom-btn test" onclick="window.location.href='Pif_else.html'">Test</button>
+                            <button class="custom-btn test" onclick="window.location.href='Pif_else.html'">Take Test</button>
                         </div>
                     </div>
                 </div>
             </div>
              <div class="col mb-3">
-                <div class="card math-card">
+                <div class="card python-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">LOOPS</h5>
                         
@@ -350,13 +375,13 @@
                        
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
-                            <button class="custom-btn test" onclick="window.location.href='PLoops.html'">Test</button>
+                            <button class="custom-btn test" onclick="window.location.href='PLoops.html'">Take Test</button>
                         </div>
                     </div>
                 </div>
             </div>
              <div class="col mb-3">
-                <div class="card math-card">
+                <div class="card python-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Coding</h5>
                         
@@ -365,7 +390,7 @@
                        
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <!-- <button class="custom-btn practice" onclick="window.location.href='python_loops_practice.html'">Practice</button> -->
-                            <button class="custom-btn test" onclick="window.location.href='Pcoding.html'">Test</button>
+                            <button class="custom-btn test" onclick="window.location.href='Pcoding.html'">Take Test</button>
                         </div>
                     </div>
                 </div>
