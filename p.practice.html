@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Python Questions with Answers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    h2 {
+      background-color: #005b96;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .question-box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 14px;
+      resize: vertical;
+    }
+    .submit-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #005b96;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004080;
+    }
+    .answer-box {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e7f3fe;
+      border-left: 5px solid #2196F3;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <form id="quizForm" onsubmit="showAnswers(event)">
+    <div id="questionsContainer"></div>
+    <div class="submit-button">
+      <button type="submit">Submit Answers</button>
+    </div>
+  </form>
+
+  <script>
+    const questions = [
+      // Variables
+      "Declare two variables, `a` and `b`, and assign any numbers. Print their sum.",
+      "Swap the values of two variables and print the result.",
+      "Assign your name to a variable and print a greeting using that variable.",
+      "Assign a value to a variable and print its data type.",
+      "Write a program to multiply two user-defined variables and print the result.",
+
+      // Data Types
+      "Create a variable of each data type: int, float, str, bool, and print them.",
+      "Check the type of a variable using the `type()` function.",
+      "Convert an integer to a string and print both before and after conversion.",
+      "Convert a float to an integer and print the result.",
+      "Take input from user and print the data type of input.",
+
+      // Operators
+      "Write a program to demonstrate arithmetic operators.",
+      "Use assignment operators to increase a variable's value.",
+      "Use comparison operators to compare two numbers.",
+      "Demonstrate logical operators using `and`, `or`, and `not`.",
+      "Write a program to use modulus operator to check even or odd.",
+
+      // Lists
+      "Create a list of 5 fruits and print it.",
+      "Access the third element from the list and print it.",
+      "Add a new fruit to the list and print the updated list.",
+      "Remove the first item from the list and print the list.",
+      "Sort the list and print it.",
+
+      // Tuples
+      "Create a tuple of 4 numbers and print it.",
+      "Access the second element from the tuple and print it.",
+      "Try to change the value of a tuple and see what happens.",
+      "Convert a list to a tuple and print it.",
+      "Use slicing to print a part of the tuple.",
+
+      // Sets
+      "Create a set of 5 unique numbers and print it.",
+      "Add a new element to the set and print it.",
+      "Remove an item from the set and print it.",
+      "Demonstrate union of two sets.",
+      "Demonstrate intersection of two sets.",
+
+      // Dictionaries
+      "Create a dictionary with keys 'name', 'age', 'city' and print it.",
+      "Access the value of the key 'age'.",
+      "Update the value of the key 'city'.",
+      "Add a new key 'email' to the dictionary.",
+      "Remove the key 'age' from the dictionary.",
+
+      // If-Else
+      "Write a program to check if a number is even or odd.",
+      "Check if a person is eligible to vote (age ≥ 18).",
+      "Write a program to check if a year is a leap year.",
+      "Find the largest of three numbers using if-else.",
+      "Check if a number is positive, negative, or zero."
+    ];
+
+    const answers = [
+      `a = 5\nb = 10\nprint(a + b)`,
+      `a = 5\nb = 10\na, b = b, a\nprint(a, b)`,
+      `name = "John"\nprint("Hello", name)`,
+      `x = 10\nprint(type(x))`,
+      `a = int(input())\nb = int(input())\nprint(a * b)`,
+
+      `a = 10\nb = 5.5\nc = "hello"\nd = True\nprint(a, b, c, d)`,
+      `x = 10\nprint(type(x))`,
+      `x = 5\nprint(x)\nprint(str(x))`,
+      `x = 5.7\nprint(int(x))`,
+      `x = input("Enter something: ")\nprint(type(x))`,
+
+      `a = 5\nb = 2\nprint(a + b, a - b, a * b, a / b)`,
+      `x = 5\nx += 3\nprint(x)`,
+      `print(5 > 3)`,
+      `print(True and False)\nprint(True or False)\nprint(not True)`,
+      `n = 5\nprint(n % 2 == 0)`,
+
+      `fruits = ["apple", "banana", "cherry", "date", "grape"]\nprint(fruits)`,
+      `print(fruits[2])`,
+      `fruits.append("kiwi")\nprint(fruits)`,
+      `fruits.pop(0)\nprint(fruits)`,
+      `fruits.sort()\nprint(fruits)`,
+
+      `nums = (1, 2, 3, 4)\nprint(nums)`,
+      `print(nums[1])`,
+      `nums[0] = 10  # Error: tuples are immutable`,
+      `lst = [1, 2, 3]\ntpl = tuple(lst)\nprint(tpl)`,
+      `print(nums[1:3])`,
+
+      `s = {1, 2, 3, 4, 5}\nprint(s)`,
+      `s.add(6)\nprint(s)`,
+      `s.remove(3)\nprint(s)`,
+      `a = {1, 2, 3}\nb = {3, 4, 5}\nprint(a | b)`,
+      `print(a & b)`,
+
+      `info = {"name": "John", "age": 25, "city": "NY"}\nprint(info)`,
+      `print(info["age"])`,
+      `info["city"] = "LA"\nprint(info)`,
+      `info["email"] = "john@example.com"\nprint(info)`,
+      `del info["age"]\nprint(info)`,
+
+      `n = 5\nif n % 2 == 0:\n  print("Even")\nelse:\n  print("Odd")`,
+      `age = 20\nif age >= 18:\n  print("Eligible")\nelse:\n  print("Not Eligible")`,
+      `year = 2024\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n  print("Leap Year")\nelse:\n  print("Not a Leap Year")`,
+      `a, b, c = 5, 7, 3\nif a > b and a > c:\n  print(a)\nelif b > c:\n  print(b)\nelse:\n  print(c)`,
+      `n = -5\nif n > 0:\n  print("Positive")\nelif n < 0:\n  print("Negative")\nelse:\n  print("Zero")`
+    ];
+
+    const container = document.getElementById("questionsContainer");
+
+    questions.forEach((q, i) => {
+      const qBox = document.createElement("div");
+      qBox.className = "question-box";
+      qBox.innerHTML = `
+        <strong>${i + 1}. ${q}</strong>
+        <textarea id="q${i}"></textarea>
+        <div class="answer-box" id="a${i}"></div>
+      `;
+      container.appendChild(qBox);
+    });
+
+    function showAnswers(e) {
+      e.preventDefault();
+      questions.forEach((_, i) => {
+        const user = document.getElementById(`q${i}`).value;
+        const answer = document.getElementById(`a${i}`);
+        answer.innerHTML = `<strong>Your Answer:</strong><br>${user}<br><br><strong>Correct Answer:</strong><br>${answers[i]}`;
+      });
+    }
+  </script>
+</body>
+</html>

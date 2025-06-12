@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Python</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .header {
+ background-color: rgb(23, 41, 84);
+ background-position: center;
+ background-size: cover;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+ display: flex;
+ justify-content: center; /* Center content horizontally */
+ align-items: center; /* Center content vertically */
+ padding: 10px 0;
+}
+
+.logo {
+ width: 100px; /* Adjust width as needed */
+ height: 100px; /* Maintains aspect ratio */
+ border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+ .header {
+     justify-content: center; /* Ensure the logo stays centered on small devices */
+ }
+}
+#footer {
+ background-color: rgb(23, 41, 84); /* White background */
+ color: #ffffff; /* Dark blue text color */
+ padding: 10px 0;
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .task { margin-bottom: 20px; padding: 15px; border-left: 5px solid #fd510d; background: #e9f9f0; border-radius: 6px; }
+    button { margin-top: 10px; padding: 6px 12px; background-color: #198754; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #145c3f; }
+    .answer { margin-top: 10px; background: #f8f9fa; padding: 10px; border-left: 3px solid #198754; border-radius: 5px; white-space: pre-wrap; font-family: monospace; }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+    <section class="header" style="font-family: sans-serif;color: rgb(23, 41, 84);">
+    <nav>
+        <img src="logo.png" alt="" class="logo">    
+    </nav>   
+  </section>
+  <br><br><br><br><br><br><br>
+  <div class="container">
+    <h2 class="mt-3 mb-3 text-center">Java Programming Tasks</h2><br>
+     <h4 class="mt-3 mb-3 text-center">Basics - Variables</h4>
+    <div class="task">
+      1. Write a Java program to print "Hello, World!"<br>
+      <button onclick="toggleAnswer('java_ans1')">Show Answer</button>
+      <div id="java_ans1" class="answer" style="display: none;">
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+      </div>
+    </div>
+
+    <div class="task">
+      2. Write a Java program to declare and initialize an integer, a float, and a character variable. Then print their values in a single line with proper formatting.<br>
+      <button onclick="toggleAnswer('java_ans2')">Show Answer</button>
+      <div id="java_ans2" class="answer" style="display: none;">
+public class VariablesDemo {
+    public static void main(String[] args) {
+        int a = 10;
+        float b = 5.5f;
+        char c = 'A';
+
+        System.out.printf("%d %.2f %c\n", a, b, c);
+    }
+}
+      </div>
+    </div>
+<div class="task">
+  3. Write a Java program to swap the values of two integer variables using a temporary variable.<br>
+  <button onclick="toggleAnswer('java_ans3')">Show Answer</button>
+  <div id="java_ans3" class="answer" style="display: none;">
+public class SwapExample {
+    public static void main(String[] args) {
+        int a = 5, b = 10;
+        int temp;
+
+        temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println("After swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+}
+  </div>
+</div>
+<div class="task">
+  4. Write a Java program to display the memory size (in bytes) allocated to different data types: int, float, char, and double.<br>
+  <button onclick="toggleAnswer('java_ans4')">Show Answer</button>
+  <div id="java_ans4" class="answer" style="display: none;">
+public class DataTypeSize {
+    public static void main(String[] args) {
+        System.out.println("Size of int: " + Integer.BYTES + " bytes");
+        System.out.println("Size of float: " + Float.BYTES + " bytes");
+        System.out.println("Size of char: " + Character.BYTES + " bytes");
+        System.out.println("Size of double: " + Double.BYTES + " bytes");
+    }
+}
+  </div>
+</div>
+<div class="task">
+  5. Write a Java program to take the name of a user as input and display it on the screen.<br>
+  <button onclick="toggleAnswer('java_ans5')">Show Answer</button>
+  <div id="java_ans5" class="answer" style="display: none;">
+import java.util.Scanner;
+
+public class NameInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name);
+    }
+}
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Operators</h4>
+<div class="task">
+  6. Write a Java program to demonstrate the use of arithmetic operators (+, -, *, /, %) on two integer numbers.<br>
+  <button onclick="toggleAnswer('java_ans6')">Show Answer</button>
+  <div id="java_ans6" class="answer" style="display: none;">
+public class ArithmeticOperators {
+    public static void main(String[] args) {
+        int a = 15, b = 4;
+
+        System.out.println("Addition: " + (a + b));
+        System.out.println("Subtraction: " + (a - b));
+        System.out.println("Multiplication: " + (a * b));
+        System.out.println("Division: " + (a / b));
+        System.out.println("Modulus: " + (a % b));
+    }
+}
+  </div>
+</div>
+<div class="task">
+  7. Write a Java program to demonstrate the use of relational operators (==, !=, &gt;, &lt;, &gt;=, &lt;=) between two numbers.<br>
+  <button onclick="toggleAnswer('java_ans7')">Show Answer</button>
+  <div id="java_ans7" class="answer" style="display: none;">
+public class RelationalOperators {
+    public static void main(String[] args) {
+        int a = 10, b = 20;
+
+        System.out.println("a == b: " + (a == b));
+        System.out.println("a != b: " + (a != b));
+        System.out.println("a > b: " + (a > b));
+        System.out.println("a < b: " + (a < b));
+        System.out.println("a >= b: " + (a >= b));
+        System.out.println("a <= b: " + (a <= b));
+    }
+}
+  </div>
+</div>
+<div class="task">
+  8. Write a Java program to demonstrate the use of logical operators (&&, ||, !) on two conditions.<br>
+  <button onclick="toggleAnswer('java_ans8')">Show Answer</button>
+  <div id="java_ans8" class="answer" style="display: none;">
+public class LogicalOperators {
+    public static void main(String[] args) {
+        int a = 10, b = 5;
+
+        System.out.println("a > 0 && b > 0: " + (a > 0 && b > 0));
+        System.out.println("a > 0 || b < 0: " + (a > 0 || b < 0));
+        System.out.println("!(a < b): " + !(a < b));
+    }
+}
+  </div>
+</div>
+<div class="task">
+  9. Write a Java program to demonstrate the use of assignment operators (=, +=, -=, *=, /=, %=) on a variable.<br>
+  <button onclick="toggleAnswer('java_ans9')">Show Answer</button>
+  <div id="java_ans9" class="answer" style="display: none;">
+public class AssignmentOperators {
+    public static void main(String[] args) {
+        int a = 10;
+        System.out.println("Initial value: " + a);
+
+        a += 5;
+        System.out.println("After a += 5: " + a);
+
+        a -= 3;
+        System.out.println("After a -= 3: " + a);
+
+        a *= 2;
+        System.out.println("After a *= 2: " + a);
+
+        a /= 4;
+        System.out.println("After a /= 4: " + a);
+
+        a %= 3;
+        System.out.println("After a %= 3: " + a);
+    }
+}
+  </div>
+</div>
+<div class="task">
+  10. Write a Java program to demonstrate the use of increment (++) and decrement (--) operators in both prefix and postfix forms.<br>
+  <button onclick="toggleAnswer('java_ans10')">Show Answer</button>
+  <div id="java_ans10" class="answer" style="display: none;">
+public class IncrementDecrement {
+    public static void main(String[] args) {
+        int a = 5;
+        System.out.println("Initial value of a: " + a);
+
+        System.out.println("Prefix increment (++a): " + (++a));
+        System.out.println("Postfix increment (a++): " + (a++));
+        System.out.println("After postfix increment: " + a);
+
+        System.out.println("Prefix decrement (--a): " + (--a));
+        System.out.println("Postfix decrement (a--): " + (a--));
+        System.out.println("After postfix decrement: " + a);
+    }
+}
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Data Types</h4>
+<div class="task">
+  11. Write a Java program to declare variables of different data types, assign values to them, and print both their values and data types.<br>
+  <button onclick="toggleAnswer('java_ans11')">Show Answer</button>
+  <div id="java_ans11" class="answer" style="display: none;">
+<pre>
+public class DataTypesExample {
+    public static void main(String[] args) {
+        int i = 10;
+        float f = 3.14f;
+        char c = 'A';
+        double d = 123.456;
+
+        System.out.println("Integer value: " + i + " (int)");
+        System.out.println("Float value: " + f + " (float)");
+        System.out.println("Character value: " + c + " (char)");
+        System.out.println("Double value: " + d + " (double)");
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  12. Write a Java program to convert a float value to an integer and print both the original float value and the converted integer value.<br>
+  <button onclick="toggleAnswer('java_ans12')">Show Answer</button>
+  <div id="java_ans12" class="answer" style="display: none;">
+<pre>
+public class FloatToInt {
+    public static void main(String[] args) {
+        float f = 9.78f;
+        int i = (int) f;
+
+        System.out.println("Original float value: " + f);
+        System.out.println("Converted integer value: " + i);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  13. Write a Java program to demonstrate implicit type conversion in arithmetic operations.<br>
+  <button onclick="toggleAnswer('java_ans13')">Show Answer</button>
+  <div id="java_ans13" class="answer" style="display: none;">
+<pre>
+public class ImplicitConversion {
+    public static void main(String[] args) {
+        int i = 10;
+        float f = 3.5f;
+        float result = i + f;
+
+        System.out.println("Integer: " + i);
+        System.out.println("Float: " + f);
+        System.out.println("Result (i + f): " + result);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  14. Write a Java program to take a single character as input from the user and display its corresponding ASCII value.<br>
+  <button onclick="toggleAnswer('java_ans14')">Show Answer</button>
+  <div id="java_ans14" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class CharToASCII {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        int ascii = (int) ch;
+
+        System.out.println("The ASCII value of " + ch + " is " + ascii);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  15. Write a Java program to demonstrate overflow behavior with the char data type.<br>
+  <button onclick="toggleAnswer('java_ans15')">Show Answer</button>
+  <div id="java_ans15" class="answer" style="display: none;">
+<pre>
+public class CharOverflow {
+    public static void main(String[] args) {
+        char c = 65535; // Max value for char in Java (unsigned 16-bit)
+        System.out.println("Initial value: " + (int)c);
+        c++;  // Overflow occurs here
+        System.out.println("Value after overflow: " + (int)c);
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">If/Else and Nested If</h4>
+<div class="task">
+  16. Write a Java program to find the largest among three numbers entered by the user.<br>
+  <button onclick="toggleAnswer('java_ans16')">Show Answer</button>
+  <div id="java_ans16" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class LargestOfThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest;
+        if (a >= b && a >= c) {
+            largest = a;
+        } else if (b >= a && b >= c) {
+            largest = b;
+        } else {
+            largest = c;
+        }
+
+        System.out.println("The largest number is: " + largest);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  17. Write a Java program to check whether a given integer is even or odd.<br>
+  <button onclick="toggleAnswer('java_ans17')">Show Answer</button>
+  <div id="java_ans17" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class EvenOddCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+
+        if (num % 2 == 0) {
+            System.out.println("The number is even.");
+        } else {
+            System.out.println("The number is odd.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  18. Write a Java program to check whether a given year is a leap year or not.<br>
+  <button onclick="toggleAnswer('java_ans18')">Show Answer</button>
+  <div id="java_ans18" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class LeapYearCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println("It is a leap year.");
+        } else {
+            System.out.println("It is not a leap year.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  19. Write a Java program to grade a student based on their marks using nested if statements.<br>
+  <button onclick="toggleAnswer('java_ans19')">Show Answer</button>
+  <div id="java_ans19" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class GradeStudent {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter student's marks: ");
+        int marks = sc.nextInt();
+
+        if (marks >= 0 && marks <= 100) {
+            if (marks >= 90) {
+                System.out.println("Grade: A");
+            } else if (marks >= 80) {
+                System.out.println("Grade: B");
+            } else if (marks >= 70) {
+                System.out.println("Grade: C");
+            } else if (marks >= 60) {
+                System.out.println("Grade: D");
+            } else {
+                System.out.println("Grade: F");
+            }
+        } else {
+            System.out.println("Invalid marks entered.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  20. Write a Java program to check whether a given number is positive, negative, or zero.<br>
+  <button onclick="toggleAnswer('java_ans20')">Show Answer</button>
+  <div id="java_ans20" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class NumberSignCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        double num = sc.nextDouble();
+
+        if (num > 0) {
+            System.out.println("The number is positive.");
+        } else if (num < 0) {
+            System.out.println("The number is negative.");
+        } else {
+            System.out.println("The number is zero.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Switch Case</h4>
+<div class="task">
+  21. Write a Java program to create a simple calculator using switch statement that can perform basic arithmetic operations: addition, subtraction, multiplication, and division.<br>
+  <button onclick="toggleAnswer('java_ans21')">Show Answer</button>
+  <div id="java_ans21" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = sc.next().charAt(0);
+
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
+
+        switch (operator) {
+            case '+':
+                System.out.println("Result: " + (num1 + num2));
+                break;
+            case '-':
+                System.out.println("Result: " + (num1 - num2));
+                break;
+            case '*':
+                System.out.println("Result: " + (num1 * num2));
+                break;
+            case '/':
+                if (num2 != 0)
+                    System.out.println("Result: " + (num1 / num2));
+                else
+                    System.out.println("Error: Division by zero");
+                break;
+            default:
+                System.out.println("Invalid operator.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  22. Write a Java program to display the day of the week based on user input (1 to 7) using switch statement.<br>
+  <button onclick="toggleAnswer('java_ans22')">Show Answer</button>
+  <div id="java_ans22" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class DayOfWeek {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number (1-7) to get the day of the week: ");
+        int day = sc.nextInt();
+
+        switch(day) {
+            case 1:
+                System.out.println("Sunday");
+                break;
+            case 2:
+                System.out.println("Monday");
+                break;
+            case 3:
+                System.out.println("Tuesday");
+                break;
+            case 4:
+                System.out.println("Wednesday");
+                break;
+            case 5:
+                System.out.println("Thursday");
+                break;
+            case 6:
+                System.out.println("Friday");
+                break;
+            case 7:
+                System.out.println("Saturday");
+                break;
+            default:
+                System.out.println("Invalid input! Please enter a number between 1 and 7.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  23. Write a Java program to check whether an entered alphabet is a vowel or a consonant using a switch statement.<br>
+  <button onclick="toggleAnswer('java_ans23')">Show Answer</button>
+  <div id="java_ans23" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class VowelOrConsonant {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an alphabet: ");
+        char ch = sc.next().charAt(0);
+
+        switch (Character.toLowerCase(ch)) {
+            case 'a': case 'e': case 'i': case 'o': case 'u':
+                System.out.println("Vowel");
+                break;
+            default:
+                System.out.println("Consonant");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  24. Write a Java program to check whether a given integer is even or odd using a switch statement.<br>
+  <button onclick="toggleAnswer('java_ans24')">Show Answer</button>
+  <div id="java_ans24" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class EvenOddSwitch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+
+        switch (num % 2) {
+            case 0:
+                System.out.println("Even");
+                break;
+            case 1:
+            case -1:
+                System.out.println("Odd");
+                break;
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  25. Write a Java program that displays a menu to perform addition or subtraction of two numbers using a switch statement.<br>
+  <button onclick="toggleAnswer('java_ans25')">Show Answer</button>
+  <div id="java_ans25" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class MenuCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        double num1, num2, result;
+
+        System.out.println("Menu:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.print("Enter your choice (1 or 2): ");
+        choice = sc.nextInt();
+
+        System.out.print("Enter two numbers: ");
+        num1 = sc.nextDouble();
+        num2 = sc.nextDouble();
+
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case 2:
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Loops & Nested Loops</h4>
+<div class="task">
+  26. Write a Java program to print numbers from 1 to 10 using a for loop.<br>
+  <button onclick="toggleAnswer('java_ans26')">Show Answer</button>
+  <div id="java_ans26" class="answer" style="display: none;">
+<pre>
+public class PrintNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  27. Write a Java program to calculate and print the factorial of a given positive integer using a while loop.<br>
+  <button onclick="toggleAnswer('java_ans27')">Show Answer</button>
+  <div id="java_ans27" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class FactorialWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int num = sc.nextInt();
+
+        int i = 1, fact = 1;
+        while (i <= num) {
+            fact *= i;
+            i++;
+        }
+
+        System.out.println("Factorial of " + num + " is " + fact);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  28. Write a Java program to print all even numbers from 1 to 20 using a loop.<br>
+  <button onclick="toggleAnswer('java_ans28')">Show Answer</button>
+  <div id="java_ans28" class="answer" style="display: none;">
+<pre>
+public class EvenNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  29. Write a Java program to print the multiplication table of a given number using a loop.<br>
+  <button onclick="toggleAnswer('java_ans29')">Show Answer</button>
+  <div id="java_ans29" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  30. Write a Java program to print a square pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans30')">Show Answer</button>
+  <div id="java_ans30" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class SquarePattern {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the square: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Star Pattern - Nested Loops</h4>
+<div class="task">
+  31. Write a Java program to print a left-aligned triangle pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans31')">Show Answer</button>
+  <div id="java_ans31" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class LeftAlignedTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  32. Write a Java program to print a right-aligned triangle pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans32')">Show Answer</button>
+  <div id="java_ans32" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class RightAlignedTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int space = 1; space <= n - i; space++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  33. Write a Java program to print a pyramid pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans33')">Show Answer</button>
+  <div id="java_ans33" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class PyramidPattern {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int space = 1; space <= n - i; space++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  34. Write a Java program to print an inverted pyramid pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans34')">Show Answer</button>
+  <div id="java_ans34" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class InvertedPyramid {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int n = sc.nextInt();
+
+        for (int i = n; i >= 1; i--) {
+            for (int space = 1; space <= n - i; space++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  35. Write a Java program to print a hollow square pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('java_ans35')">Show Answer</button>
+  <div id="java_ans35" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class HollowSquare {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the square: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n || j == 1 || j == n) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+<div class="task">
+  36. Write a Java program to declare an integer array, initialize it with values, and display the elements.<br>
+  <button onclick="toggleAnswer('java_ans36')">Show Answer</button>
+  <div id="java_ans36" class="answer" style="display: none;">
+<pre>
+public class ArrayDisplay {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        System.out.println("Array elements are:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  37. Write a Java program to find the sum of all elements in an integer array.<br>
+  <button onclick="toggleAnswer('java_ans37')">Show Answer</button>
+  <div id="java_ans37" class="answer" style="display: none;">
+<pre>
+public class ArraySum {
+    public static void main(String[] args) {
+        int[] numbers = {5, 10, 15, 20, 25};
+        int sum = 0;
+
+        for (int i = 0; i &lt; numbers.length; i++) {
+            sum += numbers[i];
+        }
+
+        System.out.println("Sum of all elements: " + sum);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  38. Write a Java program to find the largest element in an array of integers.<br>
+  <button onclick="toggleAnswer('java_ans38')">Show Answer</button>
+  <div id="java_ans38" class="answer" style="display: none;">
+<pre>
+public class LargestElement {
+    public static void main(String[] args) {
+        int[] numbers = {12, 45, 67, 23, 89, 34};
+        int max = numbers[0];
+
+        for (int i = 1; i &lt; numbers.length; i++) {
+            if (numbers[i] &gt; max) {
+                max = numbers[i];
+            }
+        }
+
+        System.out.println("Largest element is: " + max);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  39. Write a Java program to reverse the elements of an integer array.<br>
+  <button onclick="toggleAnswer('java_ans39')">Show Answer</button>
+  <div id="java_ans39" class="answer" style="display: none;">
+<pre>
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        System.out.print("Original array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+        // Reversing the array
+        int n = arr.length;
+        for (int i = 0; i &lt; n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+        }
+
+        System.out.print("\nReversed array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  40. Write a Java program to count the number of even and odd elements in an integer array.<br>
+  <button onclick="toggleAnswer('java_ans40')">Show Answer</button>
+  <div id="java_ans40" class="answer" style="display: none;">
+<pre>
+public class EvenOddCount {
+    public static void main(String[] args) {
+        int[] arr = {12, 7, 9, 20, 18, 5, 11};
+        int even = 0, odd = 0;
+
+        for (int num : arr) {
+            if (num % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        System.out.println("Number of even elements: " + even);
+        System.out.println("Number of odd elements: " + odd);
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+<div class="task">
+  41. Write a Java program to input a string from the user and display it on the screen.<br>
+  <button onclick="toggleAnswer('java_ans41')">Show Answer</button>
+  <div id="java_ans41" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class InputString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        System.out.println("You entered: " + str);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  42. Write a Java program to find and display the length of a given string.<br>
+  <button onclick="toggleAnswer('java_ans42')">Show Answer</button>
+  <div id="java_ans42" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringLength {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        int length = input.length();
+
+        System.out.println("Length of the string: " + length);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  43. Write a Java program to input two strings from the user and concatenate them into one.<br>
+  <button onclick="toggleAnswer('java_ans43')">Show Answer</button>
+  <div id="java_ans43" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class ConcatenateStrings {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+
+        String result = str1 + str2;
+
+        System.out.println("Concatenated string: " + result);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  44. Write a Java program to input a string from the user and copy its contents into another string.<br>
+  <button onclick="toggleAnswer('java_ans44')">Show Answer</button>
+  <div id="java_ans44" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class CopyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String original = sc.nextLine();
+
+        String copy = original;  // Copy string
+
+        System.out.println("Copied string: " + copy);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  45. Write a Java program to input two strings from the user and compare them to determine if they are equal.<br>
+  <button onclick="toggleAnswer('java_ans45')">Show Answer</button>
+  <div id="java_ans45" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class CompareStrings {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+
+        if (str1.equals(str2)) {
+            System.out.println("Strings are equal.");
+        } else {
+            System.out.println("Strings are not equal.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+<div class="task">
+  46. Write a Java program to declare and initialize an array, then display its elements.<br>
+  <button onclick="toggleAnswer('java_ans46')">Show Answer</button>
+  <div id="java_ans46" class="answer" style="display: none;">
+<pre>
+public class ArrayDisplay {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        System.out.println("Array elements are:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  47. Write a Java program to input elements into an array, calculate the sum of all elements, and display the result.<br>
+  <button onclick="toggleAnswer('java_ans47')">Show Answer</button>
+  <div id="java_ans47" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class ArraySum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int sum = 0;
+
+        System.out.println("Enter " + n + " elements:");
+        for(int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            sum += arr[i];
+        }
+
+        System.out.println("Sum of all elements = " + sum);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  48. Write a Java program to input elements into an array, calculate the maximum of all elements, and display the result.<br>
+  <button onclick="toggleAnswer('java_ans48')">Show Answer</button>
+  <div id="java_ans48" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class MaxInArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i &lt; n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int max = arr[0];
+        for (int i = 1; i &lt; n; i++) {
+            if (arr[i] &gt; max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println("Maximum element = " + max);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  49. Write a Java program to input elements into an array and display the array in reverse order.<br>
+  <button onclick="toggleAnswer('java_ans49')">Show Answer</button>
+  <div id="java_ans49" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " elements:");
+        for(int i = 0; i &lt; n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Array in reverse order:");
+        for(int i = n - 1; i &gt;= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  50. Write a Java program to input elements into an array and count how many elements are even and how many are odd.<br>
+  <button onclick="toggleAnswer('java_ans50')">Show Answer</button>
+  <div id="java_ans50" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class EvenOddCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " elements:");
+        for(int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int even = 0, odd = 0;
+        for(int num : arr) {
+            if(num % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        System.out.println("Number of even elements: " + even);
+        System.out.println("Number of odd elements: " + odd);
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+<div class="task">
+  51. Write a Java program to take a string input from the user and print it on the screen.<br>
+  <button onclick="toggleAnswer('java_ans51')">Show Answer</button>
+  <div id="java_ans51" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String text = sc.nextLine();
+
+        System.out.println("You entered: " + text);
+    }
+}
+</pre>
+  </div>
+</div>
+
+<div class="task">
+  52. Write a Java program to input a string from the user and find its length without using the built-in length() method.<br>
+  <button onclick="toggleAnswer('java_ans52')">Show Answer</button>
+  <div id="java_ans52" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringLength {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        int length = 0;
+        for (char ch : str.toCharArray()) {
+            length++;
+        }
+
+        System.out.println("Length of the string: " + length);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  53. Write a Java program to input two strings from the user and concatenate (join) the second string to the end of the first string. Then print the combined string.<br>
+  <button onclick="toggleAnswer('java_ans53')">Show Answer</button>
+  <div id="java_ans53" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringConcatenate {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter the second string: ");
+        String str2 = sc.nextLine();
+
+        String combined = str1 + str2;
+        System.out.println("Combined string: " + combined);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  54. Write a Java program to input a string from the user and copy it into another string variable. Then print the copied string.<br>
+  <button onclick="toggleAnswer('java_ans54')">Show Answer</button>
+  <div id="java_ans54" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringCopy {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String original = sc.nextLine();
+        
+        String copy = "";
+        for (int i = 0; i < original.length(); i++) {
+            copy += original.charAt(i);
+        }
+
+        System.out.println("Copied string: " + copy);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  55. Write a Java program to input two strings from the user and compare them to check if they are equal or not. Display an appropriate message.<br>
+  <button onclick="toggleAnswer('java_ans55')">Show Answer</button>
+  <div id="java_ans55" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class StringComparison {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter the second string: ");
+        String str2 = sc.nextLine();
+
+        if (str1.equals(str2)) {
+            System.out.println("The strings are equal.");
+        } else {
+            System.out.println("The strings are not equal.");
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Pointers</h4>
+<div class="task">
+  56. Java does not support pointers, but we can simulate address-like behavior using <code>System.identityHashCode()</code> to get the memory reference hash.<br>
+  <button onclick="toggleAnswer('java_ans56')">Show Answer</button>
+  <div id="java_ans56" class="answer" style="display: none;">
+<pre>
+public class PointerSimulation {
+    public static void main(String[] args) {
+        Integer num = 42;
+        System.out.println("Value of num: " + num);
+        System.out.println("Simulated address of num: " + System.identityHashCode(num));
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  57. Java does not support pointers explicitly. Use object references to simulate pointer behavior.<br>
+  <button onclick="toggleAnswer('java_ans57')">Show Answer</button>
+  <div id="java_ans57" class="answer" style="display: none;">
+<pre>
+public class PointerSimulation {
+    public static void main(String[] args) {
+        Integer num = 100;  // Auto-boxed Integer object
+        Integer ref = num;  // Reference to the same object
+
+        System.out.println("Original value: " + num);
+        System.out.println("Accessed through reference: " + ref);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  58. Java does not support pointers, but we can use a wrapper class to simulate pass-by-reference for swapping two integers.<br>
+  <button onclick="toggleAnswer('java_ans58')">Show Answer</button>
+  <div id="java_ans58" class="answer" style="display: none;">
+<pre>
+class IntWrapper {
+    int value;
+    IntWrapper(int value) {
+        this.value = value;
+    }
+}
+
+public class SwapWithWrapper {
+    public static void swap(IntWrapper a, IntWrapper b) {
+        int temp = a.value;
+        a.value = b.value;
+        b.value = temp;
+    }
+
+    public static void main(String[] args) {
+        IntWrapper x = new IntWrapper(10);
+        IntWrapper y = new IntWrapper(20);
+
+        System.out.println("Before swap: x = " + x.value + ", y = " + y.value);
+        swap(x, y);
+        System.out.println("After swap: x = " + x.value + ", y = " + y.value);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  59. Write a Java program to declare an integer array, use a loop to simulate pointer traversal, and print all the elements.<br>
+  <button onclick="toggleAnswer('java_ans59')">Show Answer</button>
+  <div id="java_ans59" class="answer" style="display: none;">
+<pre>
+public class ArrayPointerTraversal {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        System.out.println("Array elements:");
+        for (int i = 0; i &lt; arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  60. Write a Java program to simulate pointer arithmetic by using a loop index to traverse the array instead of direct array access.<br>
+  <button onclick="toggleAnswer('java_ans60')">Show Answer</button>
+  <div id="java_ans60" class="answer" style="display: none;">
+<pre>
+public class PointerSimulation {
+    public static void main(String[] args) {
+        int[] arr = {5, 10, 15, 20, 25};
+
+        System.out.println("Traversing array using simulated pointer logic:");
+        int ptr = 0;
+        while (ptr &lt; arr.length) {
+            System.out.println(arr[ptr]);
+            ptr++;
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Functions</h4>
+<div class="task">
+  61. Write a Java program to simulate pointer arithmetic by traversing an array using a loop variable and printing elements without using direct indexing logic.<br>
+  <button onclick="toggleAnswer('java_ans61')">Show Answer</button>
+  <div id="java_ans61" class="answer" style="display: none;">
+<pre>
+public class PointerTraversal {
+    public static void main(String[] args) {
+        int[] arr = {3, 6, 9, 12, 15};
+
+        System.out.println("Traversing array using simulated pointer arithmetic:");
+        for (int element : arr) {
+            System.out.println(element);
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  62. Write a Java program to create a method that takes two integers, adds them, and returns the sum. Call this method from main and print the result.<br>
+  <button onclick="toggleAnswer('java_ans62')">Show Answer</button>
+  <div id="java_ans62" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class AddFunction {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+
+        int result = add(num1, num2);
+        System.out.println("Sum: " + result);
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  63. Write a Java program to calculate the factorial of a given non-negative integer using recursion.
+  <br>
+  <button onclick="toggleAnswer('java_ans63')">Show Answer</button>
+  <div id="java_ans63" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class FactorialRecursive {
+
+    static int factorial(int n) {
+        if (n == 0 || n == 1)
+            return 1;
+        else
+            return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a non-negative integer: ");
+        int num = sc.nextInt();
+
+        if (num < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            int result = factorial(num);
+            System.out.println("Factorial of " + num + " is " + result);
+        }
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  64. Write a Java program that defines a function to check whether a given integer is a prime number.
+  <br>
+  <button onclick="toggleAnswer('java_ans64')">Show Answer</button>
+  <div id="java_ans64" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class PrimeCheck {
+
+    static boolean isPrime(int n) {
+        if (n <= 1)
+            return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        if (isPrime(num))
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
+    }
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  65. Write a Java program that uses a function to generate and print the Fibonacci series up to n terms. The function should take an integer n as an argument and print the Fibonacci sequence up to n terms. Call this function from main() after taking input from the user.<br>
+  <button onclick="toggleAnswer('java_ans65')">Show Answer</button>
+  <div id="java_ans65" class="answer" style="display: none;">
+<pre>
+import java.util.Scanner;
+
+public class FibonacciSeries {
+
+    public static void printFibonacci(int n) {
+        int a = 0, b = 1, next;
+        System.out.println("Fibonacci Series up to " + n + " terms:");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + " ");
+            next = a + b;
+            a = b;
+            b = next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of terms: ");
+        int terms = sc.nextInt();
+        printFibonacci(terms);
+    }
+}
+</pre>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>
+

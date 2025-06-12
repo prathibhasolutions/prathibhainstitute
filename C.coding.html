@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>C Programming</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Python</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    
+
+    
+    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+
+
+
+<body>
+<style>
+     .header {
+ background-color: rgb(23, 41, 84);
+ background-position: center;
+ background-size: cover;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+ display: flex;
+ justify-content: center; /* Center content horizontally */
+ align-items: center; /* Center content vertically */
+ padding: 10px 0;
+}
+
+.logo {
+ width: 100px; /* Adjust width as needed */
+ height: 100px; /* Maintains aspect ratio */
+ border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+ .header {
+     justify-content: center; /* Ensure the logo stays centered on small devices */
+ }
+}
+#footer {
+ background-color: rgb(23, 41, 84); /* White background */
+ color: #ffffff; /* Dark blue text color */
+ padding: 10px 0;
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+.task { margin-bottom: 20px; padding: 15px; border-left: 5px solid #fd510d; background: #f1f9ff; border-radius: 6px; }
+button { margin-top: 10px; padding: 6px 12px; background-color: #b0c704; color: white; border: none; border-radius: 5px; cursor: pointer; }
+button:hover { background-color: #084298; }
+.answer { margin-top: 10px; background: #f8f9fa; padding: 10px; border-left: 3px solid #dadd1d; border-radius: 5px; white-space: pre-wrap; font-family: monospace; }
+
+</style>
+
+<script>
+function toggleAnswer(id) {
+  const ans = document.getElementById(id);
+  ans.style.display = ans.style.display === "none" ? "block" : "none";
+}
+</script>
+<section class="header" style="font-family: sans-serif;color: rgb(23, 41, 84);">
+    <nav>
+        <img src="logo.png" alt="" class="logo">    
+    </nav>   
+  </section>
+  <br><br><br><br><br><br><br>
+<div class="container">
+  <h2 class="mt-3 mb-3 text-center">C Programming Tasks</h2><br>
+<h4 class="mt-3 mb-3 text-center">Basics - Variables</h4>
+<div class="task " >
+1. Write a C program to print "Hello, World!"<br>
+<button onclick="toggleAnswer('ans1')">Show Answer</button>
+<div id="ans1" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    printf("Hello, World!");
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+2. Write a C program to declare and initialize an integer, a float, and a character variable. Then, print their values in a single line using printf() with appropriate format specifiers<br>
+<button onclick="toggleAnswer('ans2')">Show Answer</button>
+<div id="ans2" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 10;
+    float b = 5.5;
+    char c = 'A';
+    printf("%d %.2f %c", a, b, c);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+3. Write a C program to swap the values of two integer variables using a temporary variable.<br>
+<button onclick="toggleAnswer('ans3')">Show Answer</button>
+<div id="ans3" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 5, b = 10, temp;
+    temp = a;
+    a = b;
+    b = temp;
+    printf("a = %d, b = %d", a, b);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+4. Write a C program to find and display the memory size (in bytes) allocated to different data types: int, float, char, and double.<br>
+<button onclick="toggleAnswer('ans4')">Show Answer</button>
+<div id="ans4" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    printf("int: %lu\\n", sizeof(int));
+    printf("float: %lu\\n", sizeof(float));
+    printf("char: %lu\\n", sizeof(char));
+    printf("double: %lu\\n", sizeof(double));
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+5. Write a C program to take the name of a user as input and display it on the screen.
+
+<br>
+<button onclick="toggleAnswer('ans5')">Show Answer</button>
+<div id="ans5" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    char name[20];
+    printf("Enter name: ");
+    scanf("%s", name);
+    printf("Hello, %s!", name);
+    return 0;
+}</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Operators</h4>
+<div class="task">
+6. Write a C program to demonstrate the use of arithmetic operators on two integer numbers<br>
+<button onclick="toggleAnswer('ans6')">Show Answer</button>
+<div id="ans6" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 10, b = 3;
+    printf("+: %d\\n-: %d\\n*: %d\\n/: %d\\n%%: %d", a+b, a-b, a*b, a/b, a%b);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+7. Write a C program to demonstrate the use of relational operators between two numbers.<br>
+<button onclick="toggleAnswer('ans7')">Show Answer</button>
+<div id="ans7" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 10, b = 20;
+    printf("a > b: %d\\na < b: %d\\na == b: %d", a > b, a < b, a == b);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+8. Write a C program to demonstrate the use of logical operators on two conditions.
+
+<br>
+<button onclick="toggleAnswer('ans8')">Show Answer</button>
+<div id="ans8" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 1, b = 0;
+    printf("AND: %d\\nOR: %d\\nNOT A: %d", a && b, a || b, !a);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+9. Write a C program to demonstrate the use of assignment operators.
+
+<br>
+<button onclick="toggleAnswer('ans9')">Show Answer</button>
+<div id="ans9" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 5;
+    a += 3;
+    a *= 2;
+    printf("a = %d", a);
+    return 0;
+}</div>
+</div>
+
+<div class="task">
+10. Write a C program to demonstrate the use of increment (++) and decrement (--) operators in both their prefix and postfix forms.
+
+<br>
+<button onclick="toggleAnswer('ans10')">Show Answer</button>
+<div id="ans10" class="answer" style="display: none;">#include &lt;stdio.h&gt;
+int main() {
+    int a = 5;
+    printf("++a: %d\\n", ++a);
+    printf("a--: %d\\n", a--);
+    printf("Now a: %d", a);
+    return 0;
+}</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Data Types</h4>
+
+<div class="task">
+11. Write a C program to declare variables of different data types, assign values to them, and print both their values and data types.<br>
+<button onclick="toggleAnswer('ans11')">Show Answer</button>
+<div id="ans11" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int a = 10;
+    float b = 5.5;
+    char c = 'A';
+    printf("int: %d\nfloat: %.2f\nchar: %c", a, b, c);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+12. Write a C program to convert a float value to an integer and print both the original float value and the converted integer value.
+
+<br>
+<button onclick="toggleAnswer('ans12')">Show Answer</button>
+<div id="ans12" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    float f = 9.8;
+    int i = (int)f;
+    printf("Converted int: %d", i);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+13. Write a C program to demonstrate implicit type conversion in arithmetic operations.
+
+<br>
+<button onclick="toggleAnswer('ans13')">Show Answer</button>
+<div id="ans13" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int a = 5;
+    float b = 2.0;
+    float result = a + b;
+    printf("Result: %.2f", result);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+14. Write a C program to take a single character as input from the user and display its corresponding ASCII value.<br>
+<button onclick="toggleAnswer('ans14')">Show Answer</button>
+<div id="ans14" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    char ch = 'A';
+    printf("ASCII value of %c is %d", ch, ch);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+15. Write a C program to demonstrate overflow behavior with the char data type.
+
+<br>
+<button onclick="toggleAnswer('ans15')">Show Answer</button>
+<div id="ans15" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    char c = 127;
+    c++;
+    printf("After overflow: %d", c);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">If/Else and Nested If</h4>
+
+<div class="task">
+16. Write a C program to find the largest among three numbers entered by the user.<br>
+<button onclick="toggleAnswer('ans16')">Show Answer</button>
+<div id="ans16" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int a = 10, b = 20, c = 15;
+    if (a >= b && a >= c)
+        printf("Largest is %d", a);
+    else if (b >= a && b >= c)
+        printf("Largest is %d", b);
+    else
+        printf("Largest is %d", c);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+17. Write a C program to check whether a given integer is even or odd.<br>
+<button onclick="toggleAnswer('ans17')">Show Answer</button>
+<div id="ans17" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int n = 7;
+    if (n % 2 == 0)
+        printf("Even");
+    else
+        printf("Odd");
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+18. Write a C program to check whether a given year is a leap year or not.<br>
+<button onclick="toggleAnswer('ans18')">Show Answer</button>
+<div id="ans18" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int year = 2024;
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        printf("Leap Year");
+    else
+        printf("Not Leap Year");
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+19.Write a C program to grade a student based on their marks using nested if statements.
+
+<br>
+<button onclick="toggleAnswer('ans19')">Show Answer</button>
+<div id="ans19" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int marks = 85;
+    if (marks >= 90)
+        printf("Grade A");
+    else if (marks >= 75)
+        printf("Grade B");
+    else if (marks >= 60)
+        printf("Grade C");
+    else
+        printf("Fail");
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+20. Write a C program to check whether a given number is positive, negative, or zero.
+
+<br>
+<button onclick="toggleAnswer('ans20')">Show Answer</button>
+<div id="ans20" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int n = -10;
+    if (n > 0)
+        printf("Positive");
+    else if (n < 0)
+        printf("Negative");
+    else
+        printf("Zero");
+    return 0;
+}</code></pre>
+</div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Switch Case</h4>
+
+<div class="task">
+21. Write a C program to create a simple calculator using switch statement that can perform basic arithmetic operations: addition, subtraction, multiplication, and division<br>
+<button onclick="toggleAnswer('ans21')">Show Answer</button>
+<div id="ans21" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    char op = '+';
+    int a = 10, b = 5;
+    switch(op) {
+        case '+': printf("Sum = %d", a + b); break;
+        case '-': printf("Difference = %d", a - b); break;
+        case '*': printf("Product = %d", a * b); break;
+        case '/': printf("Quotient = %d", a / b); break;
+        default: printf("Invalid operator");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+22. Write a C program to display the day of the week using a switch statement based on user input (1 to 7).<br>
+<button onclick="toggleAnswer('ans22')">Show Answer</button>
+<div id="ans22" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int day = 3;
+    switch(day) {
+        case 1: printf("Monday"); break;
+        case 2: printf("Tuesday"); break;
+        case 3: printf("Wednesday"); break;
+        case 4: printf("Thursday"); break;
+        case 5: printf("Friday"); break;
+        case 6: printf("Saturday"); break;
+        case 7: printf("Sunday"); break;
+        default: printf("Invalid day");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+23. Write a C program to check whether an entered alphabet is a vowel or a consonant using a switch statement.
+
+<br>
+<button onclick="toggleAnswer('ans23')">Show Answer</button>
+<div id="ans23" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    char ch = 'e';
+    switch(ch) {
+        case 'a': case 'e': case 'i': case 'o': case 'u':
+        case 'A': case 'E': case 'I': case 'O': case 'U':
+            printf("Vowel"); break;
+        default: printf("Consonant");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+24. Write a C program to check whether a given integer is even or odd using a switch statement.<br>
+<button onclick="toggleAnswer('ans24')">Show Answer</button>
+<div id="ans24" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int n = 6;
+    switch(n % 2) {
+        case 0: printf("Even"); break;
+        case 1: printf("Odd"); break;
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+25. Write a C program that displays a menu to perform addition or subtraction of two numbers using a switch statement.
+
+<br>
+<button onclick="toggleAnswer('ans25')">Show Answer</button>
+<div id="ans25" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int choice = 1, a = 5, b = 3;
+    switch(choice) {
+        case 1: printf("Addition: %d", a + b); break;
+        case 2: printf("Subtraction: %d", a - b); break;
+        default: printf("Invalid choice");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Loops & Nested Loops</h4>
+
+<div class="task">
+26. Write a C program to print numbers from 1 to 10 using a for loop.<br>
+<button onclick="toggleAnswer('ans26')">Show Answer</button>
+<div id="ans26" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    for (int i = 1; i <= 10; i++)
+        printf("%d ", i);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+27. Write a C program to calculate and print the factorial of a given positive integer using a while loop.<br>
+<button onclick="toggleAnswer('ans27')">Show Answer</button>
+<div id="ans27" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int n = 5, fact = 1;
+    while (n > 0) {
+        fact *= n;
+        n--;
+    }
+    printf("Factorial = %d", fact);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+28. Write a C program to print all even numbers from 1 to 20 using a loop.<br>
+<button onclick="toggleAnswer('ans28')">Show Answer</button>
+<div id="ans28" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    for (int i = 2; i <= 20; i += 2)
+        printf("%d ", i);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+29. Write a C program to print the multiplication table of a given number using a loop.
+
+<br>
+<button onclick="toggleAnswer('ans29')">Show Answer</button>
+<div id="ans29" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int n = 7;
+    for (int i = 1; i <= 10; i++)
+        printf("%d x %d = %d\n", n, i, n * i);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+30. Write a C program to print a square pattern of stars (*) using nested loops.
+
+<br>
+<button onclick="toggleAnswer('ans30')">Show Answer</button>
+<div id="ans30" class="answer" style="display: none;">
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int i, j;
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= 5; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Star Pattern - Nested Loops</h4>
+
+<div class="task">
+31. Write a C program to print a left-aligned triangle pattern of stars (*) using nested loops.
+
+<br>
+<button onclick="toggleAnswer('ans31')">Show Answer</button>
+<div id="ans31" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    for(int i = 1; i <= 5; i++) {
+        for(int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+32. Write a C program to print a right-aligned triangle pattern of stars (*) using nested loops.
+
+<br>
+<button onclick="toggleAnswer('ans32')">Show Answer</button>
+<div id="ans32" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    for(int i = 1; i <= 5; i++) {
+        for(int j = 1; j <= 5 - i; j++) printf("  ");
+        for(int k = 1; k <= i; k++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+33. Write a C program to print a pyramid pattern of stars (*) using nested loops.<br>
+<button onclick="toggleAnswer('ans33')">Show Answer</button>
+<div id="ans33" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int rows = 5;
+    for(int i = 1; i <= rows; i++) {
+        for(int j = i; j < rows; j++) printf("  ");
+        for(int k = 1; k <= 2*i - 1; k++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+34. Write a C program to print an inverted pyramid pattern of stars (*) using nested loops.<br>
+<button onclick="toggleAnswer('ans34')">Show Answer</button>
+<div id="ans34" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int rows = 5;
+    for(int i = rows; i >= 1; i--) {
+        for(int j = 0; j < rows - i; j++) printf("  ");
+        for(int k = 1; k <= 2*i - 1; k++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+35.Write a C program to print a hollow square pattern of stars (*) using nested loops.
+
+<br>
+<button onclick="toggleAnswer('ans35')">Show Answer</button>
+<div id="ans35" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int n = 5;
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            if(i == 0 || i == n-1 || j == 0 || j == n-1)
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+
+<div class="task">
+36. Write a C program to declare an integer array, initialize it with values, and display the elements.
+
+<br>
+<button onclick="toggleAnswer('ans36')">Show Answer</button>
+<div id="ans36" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for(int i = 0; i < 5; i++)
+        printf("%d ", arr[i]);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+37. Write a C program to find the sum of all elements in an integer array.<br>
+<button onclick="toggleAnswer('ans37')">Show Answer</button>
+<div id="ans37" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {5, 10, 15, 20}, sum = 0;
+    for(int i = 0; i < 4; i++) sum += arr[i];
+    printf("Sum = %d", sum);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+38.Write a C program to find the largest element in an array of integers.<br>
+<button onclick="toggleAnswer('ans38')">Show Answer</button>
+<div id="ans38" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {3, 8, 1, 9, 4}, max = arr[0];
+    for(int i = 1; i < 5; i++)
+        if(arr[i] > max) max = arr[i];
+    printf("Max = %d", max);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+39. Write a C program to reverse the elements of an integer array.
+
+<br>
+<button onclick="toggleAnswer('ans39')">Show Answer</button>
+<div id="ans39" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    for(int i = 4; i >= 0; i--)
+        printf("%d ", arr[i]);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+40. Write a C program to count the number of even and odd elements in an integer array.<br>
+<button onclick="toggleAnswer('ans40')">Show Answer</button>
+<div id="ans40" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {2, 3, 5, 6, 8}, even = 0, odd = 0;
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] % 2 == 0) even++;
+        else odd++;
+    }
+    printf("Even = %d, Odd = %d", even, odd);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+
+<div class="task">
+41. Write a C program to input a string from the user and display it on the screen.<br>
+<button onclick="toggleAnswer('ans41')">Show Answer</button>
+<div id="ans41" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    char str[50];
+    printf("Enter a string: ");
+    gets(str);
+    printf("You entered: %s", str);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+42. Write a C program to find and display the length of a given string.<br>
+<button onclick="toggleAnswer('ans42')">Show Answer</button>
+<div id="ans42" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "hello";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+43.Write a C program to input two strings from the user and concatenate them into one.<br>
+<button onclick="toggleAnswer('ans43')">Show Answer</button>
+<div id="ans43" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[100] = "Hello ", str2[] = "World";
+    strcat(str1, str2);
+    printf("%s", str1);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+44. Write a C program to input a string from the user and copy its contents into another string.<br>
+<button onclick="toggleAnswer('ans44')">Show Answer</button>
+<div id="ans44" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char src[] = "Welcome", dest[50];
+    strcpy(dest, src);
+    printf("Copied String: %s", dest);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+45. Write a C program to input two strings from the user and compare them to determine if they are equal.
+
+<br>
+<button onclick="toggleAnswer('ans45')">Show Answer</button>
+<div id="ans45" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[] = "apple", str2[] = "apple";
+    if(strcmp(str1, str2) == 0)
+        printf("Strings are equal");
+    else
+        printf("Strings are not equal");
+    return 0;
+}</code></pre>
+</div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+
+<div class="task">
+46. Write a C program to declare and initialize an array, then display its elements.
+
+<br>
+<button onclick="toggleAnswer('ans46')">Show Answer</button>
+<div id="ans46" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for(int i = 0; i < 5; i++)
+        printf("%d ", arr[i]);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+47.  Write a C program to input elements into an array, calculate the sum of all elements, and display the result.<br>
+<button onclick="toggleAnswer('ans47')">Show Answer</button>
+<div id="ans47" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {5, 10, 15, 20}, sum = 0;
+    for(int i = 0; i < 4; i++) sum += arr[i];
+    printf("Sum = %d", sum);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+48. Write a C program to input elements into an array, calculate the maximum of all elements, and display the result.<br>
+<button onclick="toggleAnswer('ans48')">Show Answer</button>
+<div id="ans48" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {3, 8, 1, 9, 4}, max = arr[0];
+    for(int i = 1; i < 5; i++)
+        if(arr[i] > max) max = arr[i];
+    printf("Max = %d", max);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+49. Write a C program to input elements into an array and display the array in reverse order.<br>
+<button onclick="toggleAnswer('ans49')">Show Answer</button>
+<div id="ans49" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    for(int i = 4; i >= 0; i--)
+        printf("%d ", arr[i]);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+50.Write a C program to input elements into an array and count how many elements are even and how many are odd.<br>
+<button onclick="toggleAnswer('ans50')">Show Answer</button>
+<div id="ans50" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {2, 3, 5, 6, 8}, even = 0, odd = 0;
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] % 2 == 0) even++;
+        else odd++;
+    }
+    printf("Even = %d, Odd = %d", even, odd);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+
+<div class="task">
+51. Write a C program to take a string input from the user and print it on the screen.<br>
+<button onclick="toggleAnswer('ans51')">Show Answer</button>
+<div id="ans51" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    char str[50];
+    printf("Enter a string: ");
+    gets(str);
+    printf("You entered: %s", str);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+52. Write a C program to input a string from the user and find its length (number of characters) without using the built-in strlen() function.<br>
+<button onclick="toggleAnswer('ans52')">Show Answer</button>
+<div id="ans52" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "hello";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+53. Write a C program to input two strings from the user and concatenate (join) the second string to the end of the first string. Then print the combined string.
+
+<br>
+<button onclick="toggleAnswer('ans53')">Show Answer</button>
+<div id="ans53" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[100] = "Hello ", str2[] = "World";
+    strcat(str1, str2);
+    printf("%s", str1);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+54.Write a C program to input a string from the user and copy it into another string variable. Then print the copied string.<br>
+<button onclick="toggleAnswer('ans54')">Show Answer</button>
+<div id="ans54" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char src[] = "Welcome", dest[50];
+    strcpy(dest, src);
+    printf("Copied String: %s", dest);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+55. Write a C program to input two strings from the user and compare them to check if they are equal or not. Display an appropriate message based on the comparison.<br>
+<button onclick="toggleAnswer('ans55')">Show Answer</button>
+<div id="ans55" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[] = "apple", str2[] = "apple";
+    if(strcmp(str1, str2) == 0)
+        printf("Strings are equal");
+    else
+        printf("Strings are not equal");
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<h4 class="mt-3 mb-3 text-center">Pointers</h4>
+
+<div class="task">
+56. Write a C program to declare an integer variable, assign it a value, and then use a pointer to print the address of that variable.
+
+<br>
+<button onclick="toggleAnswer('ans56')">Show Answer</button>
+<div id="ans56" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int x = 10;
+    int *ptr = &x;
+    printf("Address of x: %p", ptr);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+57. Write a C program to declare an integer variable, assign a value, and then use a pointer to access and print the value stored in that variable.<br>
+<button onclick="toggleAnswer('ans57')">Show Answer</button>
+<div id="ans57" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int x = 20;
+    int *ptr = &x;
+    printf("Value = %d", *ptr);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+58. Write a C program to swap the values of two integer variables using pointers. Use a function that takes two integer pointers as arguments and swaps the values they point to.<br>
+<button onclick="toggleAnswer('ans58')">Show Answer</button>
+<div id="ans58" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x = 5, y = 10;
+    swap(&x, &y);
+    printf("x = %d, y = %d", x, y);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+59. Write a C program to declare an integer array, use a pointer to traverse the array elements, and print all the elements using the pointer.<br>
+<button onclick="toggleAnswer('ans59')">Show Answer</button>
+<div id="ans59" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {1, 2, 3};
+    int *p = arr;
+    for(int i = 0; i < 3; i++)
+        printf("%d ", *(p + i));
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+60. Write a C program to demonstrate pointer arithmetic by traversing an integer array using a pointer. Print all elements of the array by incrementing the pointer itself instead of using array indexing.<br>
+<button onclick="toggleAnswer('ans60')">Show Answer</button>
+<div id="ans60" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int main() {
+    int arr[] = {10, 20, 30};
+    int *p = arr;
+    p++;
+    printf("%d", *p);
+    return 0;
+}</code></pre>
+</div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Functions</h4>
+
+<div class="task">
+61. Write a C program to demonstrate pointer arithmetic by traversing an integer array using a pointer. Print all elements of the array by incrementing the pointer itself instead of using array indexing.<br>
+<button onclick="toggleAnswer('ans61')">Show Answer</button>
+<div id="ans61" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+void greet() {
+    printf("Hello from function\n");
+}
+int main() {
+    greet();
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+62. Write a C program to create a function that takes two integer arguments, adds them, and returns the sum. Call this function from main() and print the returned result.<br>
+<button onclick="toggleAnswer('ans62')">Show Answer</button>
+<div id="ans62" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int add(int a, int b) {
+    return a + b;
+}
+int main() {
+    int result = add(5, 3);
+    printf("Sum = %d", result);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+63.Write a recursive function in C to calculate the factorial of a given non-negative integer. The function should take an integer as an argument and return the factorial value. Call the function from main() and print the factorial of a user-input number.<br>
+<button onclick="toggleAnswer('ans63')">Show Answer</button>
+<div id="ans63" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int factorial(int n) {
+    if(n == 0) return 1;
+    else return n * factorial(n - 1);
+}
+int main() {
+    int n = 5;
+    printf("Factorial of %d is %d", n, factorial(n));
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+64. Write a C program that defines a function to check whether a given integer is a prime number. The function should take an integer as an argument and return 1 if the number is prime, otherwise return 0. Call this function from main() to check if a user-input number is prime and print the result.
+
+<br>
+<button onclick="toggleAnswer('ans64')">Show Answer</button>
+<div id="ans64" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+int isPrime(int n) {
+    if(n < 2) return 0;
+    for(int i = 2; i <= n/2; i++) {
+        if(n % i == 0) return 0;
+    }
+    return 1;
+}
+int main() {
+    int num = 7;
+    if(isPrime(num)) printf("%d is prime", num);
+    else printf("%d is not prime", num);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+<div class="task">
+65. Write a C program that uses a function to generate and print the Fibonacci series up to n terms. The function should take an integer n as an argument and print the Fibonacci sequence up to n terms. Call this function from main() after taking input from the user.<br>
+<button onclick="toggleAnswer('ans65')">Show Answer</button>
+<div id="ans65" class="answer" style="display: none;">
+<pre><code>#include <stdio.h>
+void fibonacci(int n) {
+    int a = 0, b = 1, next;
+    for(int i = 0; i < n; i++) {
+        printf("%d ", a);
+        next = a + b;
+        a = b;
+        b = next;
+    }
+}
+int main() {
+    int terms = 5;
+    fibonacci(terms);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<footer id="footer" class="footer">
+        
+    <div class="container text-center">
+        <p>&copy; 2024 Prathibha Institute. All rights reserved.</p>
+        <p>Designed by <a href="https://www.prathibhasolutions.com" style="color:aquamarine;">Prathibha Solutions</a></p>
+    </div> 
+  </footer>
+</body>
+</html>

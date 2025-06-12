@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Java</title>    
+    <link rel="icon" type="image/png" href="logo.png">
+  <title>Python Programming Tasks</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+     .header {
+ background-color: rgb(23, 41, 84);
+ background-position: center;
+ background-size: cover;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1000; /* Ensure the navbar appears above other content while scrolling down */
+ display: flex;
+ justify-content: center; /* Center content horizontally */
+ align-items: center; /* Center content vertically */
+ padding: 10px 0;
+}
+
+.logo {
+ width: 100px; /* Adjust width as needed */
+ height: 100px; /* Maintains aspect ratio */
+ border-radius: 50%;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+ .header {
+     justify-content: center; /* Ensure the logo stays centered on small devices */
+ }
+}
+#footer {
+ background-color: rgb(23, 41, 84); /* White background */
+ color: #ffffff; /* Dark blue text color */
+ padding: 10px 0;
+}
+    #userName {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        border-color: red;
+        box-shadow: 0 0 8px red;
+      }
+      50% {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    #generateBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .task { margin-bottom: 20px; padding: 15px; border-left: 5px solid #fd510d; background: #f1f9ff; border-radius: 6px; }
+    button { margin-top: 10px; padding: 6px 12px; background-color: #050a96; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #084298; }
+    .answer { margin-top: 10px; background: #f8f9fa; padding: 10px; border-left: 3px solid #0d6efd; border-radius: 5px; white-space: pre-wrap; font-family: monospace; }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+    <section class="header" style="font-family: sans-serif;color: rgb(23, 41, 84);">
+    <nav>
+        <img src="logo.png" alt="" class="logo">    
+    </nav>   
+  </section>
+  <br><br><br><br><br><br><br>
+  <div class="container">
+   <h2 class="mt-3 mb-3 text-center">Python Programming Tasks</h2><br>
+     <h4 class="mt-3 mb-3 text-center">Basics - Variables</h4>
+    <div class="task">
+      1. Write a Python program to print "Hello, World!"<br>
+      <button onclick="toggleAnswer('py_ans1')">Show Answer</button>
+      <div id="py_ans1" class="answer" style="display: none;">
+print("Hello, World!")
+      </div>
+    </div>
+
+    <div class="task">
+      2. Write a Python program to declare and initialize an integer, a float, and a character variable. Then print their values in a single line with proper formatting.<br>
+      <button onclick="toggleAnswer('py_ans2')">Show Answer</button>
+      <div id="py_ans2" class="answer" style="display: none;">
+a = 10
+b = 5.5
+c = 'A'
+
+print(f"{a} {b:.2f} {c}")
+      </div>
+    </div>
+<div class="task">
+  3. Write a Python program to swap the values of two integer variables using a temporary variable.<br>
+  <button onclick="toggleAnswer('py_ans3')">Show Answer</button>
+  <div id="py_ans3" class="answer" style="display: none;">
+a = 5
+b = 10
+
+temp = a
+a = b
+b = temp
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
+  </div>
+</div>
+<div class="task">
+  4. Write a Python program to find and display the memory size (in bytes) allocated to different data types: int, float, char, and double.<br>
+  <button onclick="toggleAnswer('py_ans4')">Show Answer</button>
+  <div id="py_ans4" class="answer" style="display: none;">
+import sys
+
+a = 0       # int
+b = 0.0     # float
+c = 'A'     # char (single-character string)
+d = 0.0     # double (same as float in Python)
+
+print("Size of int:", sys.getsizeof(a), "bytes")
+print("Size of float:", sys.getsizeof(b), "bytes")
+print("Size of char:", sys.getsizeof(c), "bytes")
+print("Size of double:", sys.getsizeof(d), "bytes")  # Python does not distinguish float/double
+  </div>
+</div>
+<div class="task">
+  5. Write a Python program to take the name of a user as input and display it on the screen.<br>
+  <button onclick="toggleAnswer('py_ans5')">Show Answer</button>
+  <div id="py_ans5" class="answer" style="display: none;">
+name = input("Enter your name: ")
+print("Hello,", name)
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Operators</h4>
+<div class="task">
+  6. Write a Python program to demonstrate the use of arithmetic operators (+, -, *, /, %) on two integer numbers.<br>
+  <button onclick="toggleAnswer('py_ans6')">Show Answer</button>
+  <div id="py_ans6" class="answer" style="display: none;">
+a = 15
+b = 4
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)
+  </div>
+</div>
+<div class="task">
+  7. Write a Python program to demonstrate the use of relational operators (==, !=, &gt;, &lt;, &gt;=, &lt;=) between two numbers.<br>
+  <button onclick="toggleAnswer('py_ans7')">Show Answer</button>
+  <div id="py_ans7" class="answer" style="display: none;">
+a = 10
+b = 20
+
+print("a == b:", a == b)
+print("a != b:", a != b)
+print("a > b:", a > b)
+print("a < b:", a < b)
+print("a >= b:", a >= b)
+print("a <= b:", a <= b)
+  </div>
+</div>
+<div class="task">
+  8. Write a Python program to demonstrate the use of logical operators (and, or, not) on two conditions.<br>
+  <button onclick="toggleAnswer('py_ans8')">Show Answer</button>
+  <div id="py_ans8" class="answer" style="display: none;">
+a = 10
+b = 5
+
+print("a > 0 and b > 0:", a > 0 and b > 0)
+print("a > 0 or b < 0:", a > 0 or b < 0)
+print("not (a < b):", not (a < b))
+  </div>
+</div>
+<div class="task">
+  9. Write a Python program to demonstrate the use of assignment operators (=, +=, -=, *=, /=, %=) on a variable.<br>
+  <button onclick="toggleAnswer('py_ans9')">Show Answer</button>
+  <div id="py_ans9" class="answer" style="display: none;">
+a = 10
+print("Initial value:", a)
+
+a += 5
+print("After a += 5:", a)
+
+a -= 3
+print("After a -= 3:", a)
+
+a *= 2
+print("After a *= 2:", a)
+
+a /= 4
+print("After a /= 4:", a)
+
+a %= 3
+print("After a %= 3:", a)
+  </div>
+</div>
+<div class="task">
+  10. Write a Python program to simulate the behavior of increment and decrement operations (prefix and postfix style) using standard arithmetic.<br>
+  <button onclick="toggleAnswer('py_ans10')">Show Answer</button>
+  <div id="py_ans10" class="answer" style="display: none;">
+a = 5
+print("Initial value of a:", a)
+
+# Simulating prefix increment
+a = a + 1
+print("After prefix increment (++a):", a)
+
+# Simulating postfix increment
+print("Value before postfix increment (a++):", a)
+a = a + 1
+print("After postfix increment:", a)
+
+# Simulating prefix decrement
+a = a - 1
+print("After prefix decrement (--a):", a)
+
+# Simulating postfix decrement
+print("Value before postfix decrement (a--):", a)
+a = a - 1
+print("After postfix decrement:", a)
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Data Types</h4>
+<div class="task">
+  11. Write a Python program to declare variables of different data types, assign values to them, and print both their values and data types.<br>
+  <button onclick="toggleAnswer('python_ans11')">Show Answer</button>
+  <div id="python_ans11" class="answer" style="display: none;">
+<pre>
+i = 10
+f = 3.14
+c = 'A'
+d = 123.456
+
+print("Integer value:", i, "(", type(i).__name__, ")")
+print("Float value:", f, "(", type(f).__name__, ")")
+print("Character value:", c, "(", type(c).__name__, ")")
+print("Double value:", d, "(", type(d).__name__, ")")
+</pre>
+  </div>
+</div>
+<div class="task">
+  12. Write a Python program to convert a float value to an integer and print both the original float value and the converted integer value.<br>
+  <button onclick="toggleAnswer('python_ans12')">Show Answer</button>
+  <div id="python_ans12" class="answer" style="display: none;">
+<pre>
+f = 9.78
+i = int(f)
+
+print("Original float value:", f)
+print("Converted integer value:", i)
+</pre>
+  </div>
+</div>
+<div class="task">
+  13. Write a Python program to demonstrate implicit type conversion in arithmetic operations.<br>
+  <button onclick="toggleAnswer('python_ans13')">Show Answer</button>
+  <div id="python_ans13" class="answer" style="display: none;">
+<pre>
+i = 10
+f = 3.5
+result = i + f
+
+print("Integer:", i)
+print("Float:", f)
+print("Result (i + f):", result)
+print("Type of result:", type(result).__name__)
+</pre>
+  </div>
+</div>
+<div class="task">
+  14. Write a Python program to take a single character as input from the user and display its corresponding ASCII value.<br>
+  <button onclick="toggleAnswer('python_ans14')">Show Answer</button>
+  <div id="python_ans14" class="answer" style="display: none;">
+<pre>
+char = input("Enter a character: ")
+ascii_value = ord(char)
+
+print("The ASCII value of", char, "is", ascii_value)
+</pre>
+  </div>
+</div>
+<div class="task">
+  15. Write a Python program to demonstrate overflow behavior with the char data type.<br>
+  <button onclick="toggleAnswer('python_ans15')">Show Answer</button>
+  <div id="python_ans15" class="answer" style="display: none;">
+<pre>
+# Note: Python's int type does not overflow, but we can simulate char overflow (0 to 255)
+value = 255  # Max for unsigned 8-bit char
+print("Initial value:", value)
+value = (value + 1) % 256
+print("Value after overflow (simulated 8-bit char):", value)
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">If/Else and Nested If</h4>
+<div class="task">
+  16. Write a Python program to find the largest among three numbers entered by the user.<br>
+  <button onclick="toggleAnswer('python_ans16')">Show Answer</button>
+  <div id="python_ans16" class="answer" style="display: none;">
+<pre>
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+
+print("The largest number is:", largest)
+</pre>
+  </div>
+</div>
+<div class="task">
+  17. Write a Python program to check whether a given integer is even or odd.<br>
+  <button onclick="toggleAnswer('python_ans17')">Show Answer</button>
+  <div id="python_ans17" class="answer" style="display: none;">
+<pre>
+num = int(input("Enter an integer: "))
+
+if num % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  18. Write a Python program to check whether a given year is a leap year or not.<br>
+  <button onclick="toggleAnswer('python_ans18')">Show Answer</button>
+  <div id="python_ans18" class="answer" style="display: none;">
+<pre>
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("It is a leap year.")
+else:
+    print("It is not a leap year.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  19. Write a Python program to grade a student based on their marks using nested if statements.<br>
+  <button onclick="toggleAnswer('python_ans19')">Show Answer</button>
+  <div id="python_ans19" class="answer" style="display: none;">
+<pre>
+marks = int(input("Enter student's marks: "))
+
+if marks >= 0 and marks <= 100:
+    if marks >= 90:
+        print("Grade: A")
+    elif marks >= 80:
+        print("Grade: B")
+    elif marks >= 70:
+        print("Grade: C")
+    elif marks >= 60:
+        print("Grade: D")
+    else:
+        print("Grade: F")
+else:
+    print("Invalid marks entered.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  20. Write a Python program to check whether a given number is positive, negative, or zero.<br>
+  <button onclick="toggleAnswer('python_ans20')">Show Answer</button>
+  <div id="python_ans20" class="answer" style="display: none;">
+<pre>
+num = float(input("Enter a number: "))
+
+if num > 0:
+    print("The number is positive.")
+elif num < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Switch Case</h4>
+<div class="task">
+  21. Write a Python program to create a simple calculator that can perform basic arithmetic operations: addition, subtraction, multiplication, and division.<br>
+  <button onclick="toggleAnswer('python_ans21')">Show Answer</button>
+  <div id="python_ans21" class="answer" style="display: none;">
+<pre>
+operator = input("Enter an operator (+, -, *, /): ")
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+if operator == '+':
+    print("Result:", num1 + num2)
+elif operator == '-':
+    print("Result:", num1 - num2)
+elif operator == '*':
+    print("Result:", num1 * num2)
+elif operator == '/':
+    if num2 != 0:
+        print("Result:", num1 / num2)
+    else:
+        print("Error: Division by zero.")
+else:
+    print("Invalid operator.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  22. Write a Python program to display the day of the week based on user input (1 to 7) using if-elif-else conditions.<br>
+  <button onclick="toggleAnswer('py_ans22')">Show Answer</button>
+  <div id="py_ans22" class="answer" style="display: none;">
+<pre>
+day = int(input("Enter a number (1-7) to get the corresponding day of the week: "))
+
+if day == 1:
+    print("Sunday")
+elif day == 2:
+    print("Monday")
+elif day == 3:
+    print("Tuesday")
+elif day == 4:
+    print("Wednesday")
+elif day == 5:
+    print("Thursday")
+elif day == 6:
+    print("Friday")
+elif day == 7:
+    print("Saturday")
+else:
+    print("Invalid input! Please enter a number between 1 and 7.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  23. Write a Python program to check whether an entered alphabet is a vowel or a consonant.<br>
+  <button onclick="toggleAnswer('py_ans23')">Show Answer</button>
+  <div id="py_ans23" class="answer" style="display: none;">
+<pre>
+ch = input("Enter an alphabet: ").lower()
+
+if ch in ('a', 'e', 'i', 'o', 'u'):
+    print("Vowel")
+elif ch.isalpha():
+    print("Consonant")
+else:
+    print("Invalid input")
+</pre>
+  </div>
+</div>
+<div class="task">
+  24. Write a Python program to check whether a given integer is even or odd.<br>
+  <button onclick="toggleAnswer('py_ans24')">Show Answer</button>
+  <div id="py_ans24" class="answer" style="display: none;">
+<pre>
+num = int(input("Enter an integer: "))
+
+match num % 2:
+    case 0:
+        print("Even")
+    case 1 | -1:
+        print("Odd")
+</pre>
+  </div>
+</div>
+<div class="task">
+  25. Write a Python program that displays a menu to perform addition or subtraction of two numbers.<br>
+  <button onclick="toggleAnswer('py_ans25')">Show Answer</button>
+  <div id="py_ans25" class="answer" style="display: none;">
+<pre>
+choice = int(input("Menu:\n1. Addition\n2. Subtraction\nEnter your choice (1 or 2): "))
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+match choice:
+    case 1:
+        print("Result:", num1 + num2)
+    case 2:
+        print("Result:", num1 - num2)
+    case _:
+        print("Invalid choice.")
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Loops & Nested Loops</h4>
+<div class="task">
+  26. Write a C program to print numbers from 1 to 10 using a for loop.<br>
+  <button onclick="toggleAnswer('c_ans26')">Show Answer</button>
+  <div id="c_ans26" class="answer" style="display: none;">
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}
+</pre>
+  </div>
+</div>
+<div class="task">
+  27. Write a Python program to calculate and print the factorial of a given positive integer using a while loop.<br>
+  <button onclick="toggleAnswer('py_ans27')">Show Answer</button>
+  <div id="py_ans27" class="answer" style="display: none;">
+<pre>
+num = int(input("Enter a positive integer: "))
+i = 1
+fact = 1
+
+while i <= num:
+    fact *= i
+    i += 1
+
+print(f"Factorial of {num} is {fact}")
+</pre>
+  </div>
+</div>
+<div class="task">
+  28. Write a Python program to print all even numbers from 1 to 20 using a loop.<br>
+  <button onclick="toggleAnswer('py_ans28')">Show Answer</button>
+  <div id="py_ans28" class="answer" style="display: none;">
+<pre>
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i, end=" ")
+</pre>
+  </div>
+</div>
+<div class="task">
+  29. Write a Python program to print the multiplication table of a given number using a loop.<br>
+  <button onclick="toggleAnswer('py_ans29')">Show Answer</button>
+  <div id="py_ans29" class="answer" style="display: none;">
+<pre>
+num = int(input("Enter a number: "))
+for i in range(1, 11):
+    print(f"{num} x {i} = {num * i}")
+</pre>
+  </div>
+</div>
+<div class="task">
+  30. Write a Python program to print a square pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans30')">Show Answer</button>
+  <div id="py_ans30" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the size of the square: "))
+for i in range(n):
+    for j in range(n):
+        print("*", end=" ")
+    print()
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Star Pattern - Nested Loops</h4>
+<div class="task">
+  31. Write a Python program to print a left-aligned triangle pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans31')">Show Answer</button>
+  <div id="py_ans31" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter number of rows: "))
+for i in range(1, n + 1):
+    for j in range(i):
+        print("*", end=" ")
+    print()
+</pre>
+  </div>
+</div>
+<div class="task">
+  32. Write a Python program to print a right-aligned triangle pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans32')">Show Answer</button>
+  <div id="py_ans32" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter number of rows: "))
+for i in range(1, n + 1):
+    print("  " * (n - i) + "* " * i)
+</pre>
+  </div>
+</div>
+<div class="task">
+  33. Write a Python program to print a pyramid pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans33')">Show Answer</button>
+  <div id="py_ans33" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter number of rows: "))
+for i in range(1, n + 1):
+    print("  " * (n - i) + "* " * (2 * i - 1))
+</pre>
+  </div>
+</div>
+<div class="task">
+  34. Write a Python program to print an inverted pyramid pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans34')">Show Answer</button>
+  <div id="py_ans34" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter number of rows: "))
+for i in range(n, 0, -1):
+    print("  " * (n - i) + "* " * (2 * i - 1))
+</pre>
+  </div>
+</div>
+<div class="task">
+  35. Write a Python program to print a hollow square pattern of stars (*) using nested loops.<br>
+  <button onclick="toggleAnswer('py_ans35')">Show Answer</button>
+  <div id="py_ans35" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the size of the square: "))
+
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        if i == 1 or i == n or j == 1 or j == n:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+<div class="task">
+  36. Write a Python program to declare an integer array, initialize it with values, and display the elements.<br>
+  <button onclick="toggleAnswer('py_ans36')">Show Answer</button>
+  <div id="py_ans36" class="answer" style="display: none;">
+<pre>
+numbers = [10, 20, 30, 40, 50]
+
+print("Array elements are:")
+for num in numbers:
+    print(num, end=" ")
+</pre>
+  </div>
+</div>
+<div class="task">
+  37. Write a Python program to find the sum of all elements in an integer array.<br>
+  <button onclick="toggleAnswer('py_ans37')">Show Answer</button>
+  <div id="py_ans37" class="answer" style="display: none;">
+<pre>
+numbers = [5, 10, 15, 20, 25]
+total = sum(numbers)
+
+print("Sum of all elements:", total)
+</pre>
+  </div>
+</div>
+<div class="task">
+  38. Write a Python program to find the largest element in an array of integers.<br>
+  <button onclick="toggleAnswer('py_ans38')">Show Answer</button>
+  <div id="py_ans38" class="answer" style="display: none;">
+<pre>
+numbers = [12, 45, 67, 23, 89, 34]
+maximum = max(numbers)
+
+print("Largest element is:", maximum)
+</pre>
+  </div>
+</div>
+<div class="task">
+  39. Write a Python program to reverse the elements of an integer array.<br>
+  <button onclick="toggleAnswer('py_ans39')">Show Answer</button>
+  <div id="py_ans39" class="answer" style="display: none;">
+<pre>
+arr = [10, 20, 30, 40, 50]
+
+print("Original array:", arr)
+
+# Reversing the array
+arr.reverse()
+
+print("Reversed array:", arr)
+</pre>
+  </div>
+</div>
+<div class="task">
+  40. Write a Python program to count the number of even and odd elements in an integer array.<br>
+  <button onclick="toggleAnswer('py_ans40')">Show Answer</button>
+  <div id="py_ans40" class="answer" style="display: none;">
+<pre>
+arr = [12, 7, 9, 20, 18, 5, 11]
+
+even = sum(1 for x in arr if x % 2 == 0)
+odd = len(arr) - even
+
+print("Number of even elements:", even)
+print("Number of odd elements:", odd)
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+<div class="task">
+  41. Write a Python program to input a string from the user and display it on the screen.<br>
+  <button onclick="toggleAnswer('py_ans41')">Show Answer</button>
+  <div id="py_ans41" class="answer" style="display: none;">
+<pre>
+str_input = input("Enter a string: ")
+print("You entered:", str_input)
+</pre>
+  </div>
+</div>
+<div class="task">
+  42. Write a Python program to find and display the length of a given string.<br>
+  <button onclick="toggleAnswer('py_ans42')">Show Answer</button>
+  <div id="py_ans42" class="answer" style="display: none;">
+<pre>
+str_input = input("Enter a string: ")
+print("Length of the string:", len(str_input))
+</pre>
+  </div>
+</div>
+<div class="task">
+  43. Write a Python program to input two strings from the user and concatenate them into one.<br>
+  <button onclick="toggleAnswer('py_ans43')">Show Answer</button>
+  <div id="py_ans43" class="answer" style="display: none;">
+<pre>
+str1 = input("Enter first string: ")
+str2 = input("Enter second string: ")
+
+result = str1 + str2
+
+print("Concatenated string:", result)
+</pre>
+  </div>
+</div>
+<div class="task">
+  44. Write a Python program to input a string from the user and copy its contents into another string.<br>
+  <button onclick="toggleAnswer('py_ans44')">Show Answer</button>
+  <div id="py_ans44" class="answer" style="display: none;">
+<pre>
+original = input("Enter a string: ")
+copy = original  # Copy string
+
+print("Copied string:", copy)
+</pre>
+  </div>
+</div>
+<div class="task">
+  45. Write a Python program to input two strings from the user and compare them to determine if they are equal.<br>
+  <button onclick="toggleAnswer('py_ans45')">Show Answer</button>
+  <div id="py_ans45" class="answer" style="display: none;">
+<pre>
+str1 = input("Enter first string: ")
+str2 = input("Enter second string: ")
+
+if str1 == str2:
+    print("Strings are equal.")
+else:
+    print("Strings are not equal.")
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Arrays</h4>
+<div class="task">
+  46. Write a Python program to declare and initialize an array (list), then display its elements.<br>
+  <button onclick="toggleAnswer('py_ans46')">Show Answer</button>
+  <div id="py_ans46" class="answer" style="display: none;">
+<pre>
+arr = [10, 20, 30, 40, 50]
+
+print("Array elements are:")
+for num in arr:
+    print(num, end=" ")
+</pre>
+  </div>
+</div>
+<div class="task">
+  47. Write a Python program to input elements into a list, calculate the sum of all elements, and display the result.<br>
+  <button onclick="toggleAnswer('py_ans47')">Show Answer</button>
+  <div id="py_ans47" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the number of elements: "))
+arr = []
+
+print("Enter", n, "elements:")
+for _ in range(n):
+    arr.append(int(input()))
+
+total = sum(arr)
+print("Sum of all elements =", total)
+</pre>
+  </div>
+</div>
+<div class="task">
+  48. Write a Python program to input elements into a list, calculate the maximum of all elements, and display the result.<br>
+  <button onclick="toggleAnswer('py_ans48')">Show Answer</button>
+  <div id="py_ans48" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the number of elements: "))
+arr = []
+
+print("Enter", n, "elements:")
+for _ in range(n):
+    arr.append(int(input()))
+
+maximum = max(arr)
+print("Maximum element =", maximum)
+</pre>
+  </div>
+</div>
+<div class="task">
+  49. Write a Python program to input elements into a list and display the list in reverse order.<br>
+  <button onclick="toggleAnswer('py_ans49')">Show Answer</button>
+  <div id="py_ans49" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the number of elements: "))
+arr = []
+
+print("Enter", n, "elements:")
+for _ in range(n):
+    arr.append(int(input()))
+
+print("Array in reverse order:")
+for i in reversed(arr):
+    print(i, end=' ')
+</pre>
+  </div>
+</div>
+<div class="task">
+  50. Write a Python program to input elements into a list and count how many elements are even and how many are odd.<br>
+  <button onclick="toggleAnswer('py_ans50')">Show Answer</button>
+  <div id="py_ans50" class="answer" style="display: none;">
+<pre>
+n = int(input("Enter the number of elements: "))
+arr = []
+
+print("Enter", n, "elements:")
+for _ in range(n):
+    arr.append(int(input()))
+
+even = 0
+odd = 0
+
+for num in arr:
+    if num % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+
+print("Number of even elements:", even)
+print("Number of odd elements:", odd)
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Strings</h4>
+<div class="task">
+  51. Write a Python program to take a string input from the user and print it on the screen.<br>
+  <button onclick="toggleAnswer('py_ans51')">Show Answer</button>
+  <div id="py_ans51" class="answer" style="display: none;">
+<pre>
+text = input("Enter a string: ")
+print("You entered:", text)
+</pre>
+  </div>
+</div>
+<div class="task">
+  52. Write a Python program to input a string from the user and find its length without using the built-in len() function.<br>
+  <button onclick="toggleAnswer('py_ans52')">Show Answer</button>
+  <div id="py_ans52" class="answer" style="display: none;">
+<pre>
+text = input("Enter a string: ")
+
+length = 0
+for char in text:
+    length += 1
+
+print("Length of the string:", length)
+</pre>
+  </div>
+</div>
+<div class="task">
+  53. Write a Python program to input two strings from the user and concatenate (join) the second string to the end of the first string. Then print the combined string.<br>
+  <button onclick="toggleAnswer('py_ans53')">Show Answer</button>
+  <div id="py_ans53" class="answer" style="display: none;">
+<pre>
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+
+combined = str1 + str2
+print("Combined string:", combined)
+</pre>
+  </div>
+</div>
+<div class="task">
+  54. Write a Python program to input a string from the user and copy it into another variable. Then print the copied string.<br>
+  <button onclick="toggleAnswer('py_ans54')">Show Answer</button>
+  <div id="py_ans54" class="answer" style="display: none;">
+<pre>
+original = input("Enter a string: ")
+
+copy = ""
+for char in original:
+    copy += char
+
+print("Copied string:", copy)
+</pre>
+  </div>
+</div>
+<div class="task">
+  55. Write a Python program to input two strings from the user and compare them to check if they are equal or not. Display an appropriate message.<br>
+  <button onclick="toggleAnswer('py_ans55')">Show Answer</button>
+  <div id="py_ans55" class="answer" style="display: none;">
+<pre>
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+
+if str1 == str2:
+    print("The strings are equal.")
+else:
+    print("The strings are not equal.")
+</pre>
+  </div>
+</div>\
+<h4 class="mt-3 mb-3 text-center">Pointers</h4>
+<div class="task">
+  56. Write a Python program to declare an integer variable, assign it a value, and print its memory address using the <code>id()</code> function.<br>
+  <button onclick="toggleAnswer('py_ans56')">Show Answer</button>
+  <div id="py_ans56" class="answer" style="display: none;">
+<pre>
+num = 42
+print("Value of num:", num)
+print("Address of num (using id):", id(num))
+</pre>
+  </div>
+</div>
+<div class="task">
+  57. Write a Python program to declare an integer variable, assign a value, and use a reference (simulating a pointer) to access and print the value.<br>
+  <button onclick="toggleAnswer('py_ans57')">Show Answer</button>
+  <div id="py_ans57" class="answer" style="display: none;">
+<pre>
+# Python doesn't support pointers like C, but all variables are references
+
+num = 100
+ref = num  # ref points to the same value
+print("Original value:", num)
+print("Accessed through reference:", ref)
+</pre>
+  </div>
+</div>
+<div class="task">
+  58. Write a Python program to swap the values of two integer variables using a function that takes them as references.<br>
+  <button onclick="toggleAnswer('py_ans58')">Show Answer</button>
+  <div id="py_ans58" class="answer" style="display: none;">
+<pre>
+def swap(a_b):
+    a_b[0], a_b[1] = a_b[1], a_b[0]
+
+nums = [10, 20]
+print("Before swap:", nums[0], nums[1])
+swap(nums)
+print("After swap:", nums[0], nums[1])
+</pre>
+  </div>
+</div>
+<div class="task">
+  59. Write a Python program to declare an integer list, use index-based access to simulate pointer traversal, and print all the elements.<br>
+  <button onclick="toggleAnswer('py_ans59')">Show Answer</button>
+  <div id="py_ans59" class="answer" style="display: none;">
+<pre>
+arr = [10, 20, 30, 40, 50]
+
+print("Array elements:")
+for i in range(len(arr)):
+    print(arr[i])
+</pre>
+  </div>
+</div>
+<div class="task">
+  60. Write a Python program to simulate pointer arithmetic by traversing a list using a loop variable instead of indexing directly.<br>
+  <button onclick="toggleAnswer('py_ans60')">Show Answer</button>
+  <div id="py_ans60" class="answer" style="display: none;">
+<pre>
+arr = [5, 10, 15, 20, 25]
+
+print("Traversing array using simulated pointer logic:")
+ptr = 0
+while ptr &lt; len(arr):
+    print(arr[ptr])
+    ptr += 1
+</pre>
+  </div>
+</div>
+<h4 class="mt-3 mb-3 text-center">Functions</h4>
+<div class="task">
+  61. Write a Python program to simulate pointer arithmetic by traversing a list using a loop variable and printing elements without direct indexing.<br>
+  <button onclick="toggleAnswer('py_ans61')">Show Answer</button>
+  <div id="py_ans61" class="answer" style="display: none;">
+<pre>
+arr = [3, 6, 9, 12, 15]
+
+print("Traversing array using simulated pointer arithmetic:")
+for element in arr:
+    print(element)
+</pre>
+  </div>
+</div>
+<div class="task">
+  62. Write a Python program to create a function that takes two integers, adds them, and returns the sum. Call this function and print the result.<br>
+  <button onclick="toggleAnswer('py_ans62')">Show Answer</button>
+  <div id="py_ans62" class="answer" style="display: none;">
+<pre>
+def add(a, b):
+    return a + b
+
+# Main program
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+result = add(num1, num2)
+print("Sum:", result)
+</pre>
+  </div>
+</div>
+<div class="task">
+  63. Write a Python program to calculate the factorial of a given non-negative integer using recursion.
+  <br>
+  <button onclick="toggleAnswer('py_ans63')">Show Answer</button>
+  <div id="py_ans63" class="answer" style="display: none;">
+<pre>
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+num = int(input("Enter a non-negative integer: "))
+
+if num < 0:
+    print("Factorial is not defined for negative numbers.")
+else:
+    result = factorial(num)
+    print(f"Factorial of {num} is {result}")
+</pre>
+  </div>
+</div>
+<div class="task">
+  64. Write a Python program that defines a function to check whether a given integer is a prime number.
+  <br>
+  <button onclick="toggleAnswer('py_ans64')">Show Answer</button>
+  <div id="py_ans64" class="answer" style="display: none;">
+<pre>
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+num = int(input("Enter a number: "))
+
+if is_prime(num):
+    print(f"{num} is a prime number.")
+else:
+    print(f"{num} is not a prime number.")
+</pre>
+  </div>
+</div>
+<div class="task">
+  65. Write a Python program that uses a function to generate and print the Fibonacci series up to n terms. The function should take an integer n as an argument and print the Fibonacci sequence up to n terms. Call this function from main() after taking input from the user.<br>
+  <button onclick="toggleAnswer('py_ans65')">Show Answer</button>
+  <div id="py_ans65" class="answer" style="display: none;">
+<pre>
+def fibonacci(n):
+    a, b = 0, 1
+    print("Fibonacci Series up to", n, "terms:")
+    for _ in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+
+# Main
+terms = int(input("Enter the number of terms: "))
+fibonacci(terms)
+</pre>
+  </div>
+</div></div>
+<footer id="footer" class="footer">
+        
+    <div class="container text-center">
+        <p>&copy; 2024 Prathibha Institute. All rights reserved.</p>
+        <p>Designed by <a href="https://www.prathibhasolutions.com" style="color:aquamarine;">Prathibha Solutions</a></p>
+    </div> 
+  </footer>
+
+</body>
+</html>
+

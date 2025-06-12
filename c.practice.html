@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>C Language Questions with Answers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    h2 {
+      background-color: #004d40;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .question-box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 14px;
+      resize: vertical;
+    }
+    .submit-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #004d40;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00332e;
+    }
+    .answer-box {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e7ebeb;
+      border-left: 5px solid #00695c;
+      white-space: pre-wrap;
+    }
+    pre {
+      background-color: #e8f5e9;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form id="quizForm" onsubmit="showAnswers(event)">
+    <div id="questionsContainer"></div>
+    <div class="submit-button">
+      <button type="submit">Submit Answers</button>
+    </div>
+  </form>
+
+  <script>
+    const questions = [
+      " Declare two integer variables and print their sum.",
+      " Swap two numbers using a temporary variable.",
+      " Print size of int, float, and char using sizeof.",
+      " Check if a number is even or odd using if-else.",
+      " Write a C program to find the largest of three numbers.",
+      " Use switch to print day name for day number (1 to 7).",
+      " Print numbers from 1 to 10 using while loop.",
+      " Print multiplication table of a number using for loop.",
+      " Print star pattern triangle using nested loops.",
+      " Find factorial of a number using recursion.",
+      " Declare an array and print its elements.",
+      " Find sum of all elements in an array.",
+      " Copy one string to another using strcpy.",
+      " Reverse a string using loop.",
+      " Declare a pointer and print address and value.",
+      " Create a function to add two integers and return result.",
+      " Use pointer to function for addition.",
+      " Open a file and write data to it.",
+      " Read data from file and print.",
+      " Define a structure for student and print details."
+    ];
+
+    const answers = [
+      `int a = 5, b = 3;
+printf("Sum = %d\\n", a + b);`,
+
+      `int a = 5, b = 10, temp;
+temp = a;
+a = b;
+b = temp;
+printf("a = %d, b = %d\\n", a, b);`,
+
+      `printf("int: %lu\\nfloat: %lu\\nchar: %lu\\n", sizeof(int), sizeof(float), sizeof(char));`,
+
+      `int n = 4;
+if(n % 2 == 0) printf("Even");
+else printf("Odd");`,
+
+      `int a=2, b=4, c=3;
+if(a > b && a > c)
+  printf("a");
+else if(b > c)
+  printf("b");
+else
+  printf("c");`,
+
+      `int day = 3;
+switch(day){
+  case 1: printf("Sunday"); break;
+  case 2: printf("Monday"); break;
+  case 3: printf("Tuesday"); break;
+  case 4: printf("Wednesday"); break;
+  case 5: printf("Thursday"); break;
+  case 6: printf("Friday"); break;
+  case 7: printf("Saturday"); break;
+  default: printf("Invalid");
+}`,
+
+      `int i = 1;
+while(i <= 10){
+  printf("%d ", i);
+  i++;
+}`,
+
+      `int i;
+for(i=1; i<=10; i++)
+  printf("%d x 5 = %d\\n", i, i*5);`,
+
+      `for(int i=1; i<=5; i++){
+  for(int j=1; j<=i; j++)
+    printf("*");
+  printf("\\n");
+}`,
+
+      `int fact(int n){
+  if(n==0) return 1;
+  return n * fact(n - 1);
+}`,
+
+      `int arr[5] = {1,2,3,4,5};
+for(int i=0; i<5; i++)
+  printf("%d ", arr[i]);`,
+
+      `int sum=0;
+int arr[5]={1,2,3,4,5};
+for(int i=0; i<5; i++)
+  sum += arr[i];
+printf("Sum = %d", sum);`,
+
+      `char str1[] = "Hello";
+char str2[10];
+strcpy(str2, str1);
+printf("%s", str2);`,
+
+      `char str[] = "hello";
+int n = strlen(str);
+for(int i=n-1; i>=0; i--)
+  printf("%c", str[i]);`,
+
+      `int a = 5;
+int *p = &a;
+printf("%d %p", *p, p);`,
+
+      `int add(int x, int y){
+  return x + y;
+}
+printf("%d", add(5, 3));`,
+
+      `int add(int x, int y){
+  return x + y;
+}
+int (*fptr)(int,int) = add;
+printf("%d", fptr(2,3));`,
+
+      `FILE *f = fopen("data.txt", "w");
+fprintf(f, "Hello");
+fclose(f);`,
+
+      `FILE *f = fopen("data.txt", "r");
+char ch;
+while((ch = fgetc(f)) != EOF)
+  putchar(ch);
+fclose(f);`,
+
+      `struct student {
+  char name[20];
+  int age;
+};
+struct student s = {"John", 20};
+printf("%s %d", s.name, s.age);`
+    ];
+
+    const container = document.getElementById("questionsContainer");
+    questions.forEach((q, i) => {
+      const qBox = document.createElement("div");
+      qBox.className = "question-box";
+      qBox.innerHTML = `
+        <strong>${i + 1}. ${q}</strong>
+        <textarea id="q${i}"></textarea>
+        <div class="answer-box" id="a${i}"></div>
+      `;
+      container.appendChild(qBox);
+    });
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function showAnswers(e) {
+      e.preventDefault();
+      questions.forEach((_, i) => {
+        const user = document.getElementById(`q${i}`).value;
+        const answerBox = document.getElementById(`a${i}`);
+        answerBox.innerHTML = `
+          <strong>Your Answer:</strong>
+          <pre><code>${escapeHtml(user)}</code></pre>
+          <strong>Correct Answer:</strong>
+          <pre><code>${escapeHtml(answers[i])}</code></pre>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
