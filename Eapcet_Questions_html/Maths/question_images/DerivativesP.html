@@ -282,13 +282,14 @@
     
         <!-- Starred Questions List -->
         <div class="mt-4">
-            <h4>Questions:</h4>
+            <h4>Level Easy:</h4>
+
             <div class="star-question-list" id="easy-list"></div><br>
     
-            <!-- <h4>Level Medium:</h4> -->
+            <h4>Level Medium:</h4>
             <div class="star-question-list" id="medium-list"></div><br>
     
-            <!-- <h4>Level Difficult:</h4> -->
+            <h4>Level Difficult:</h4> 
             <div class="star-question-list" id="difficult-list"></div>
         </div>
     </div>
@@ -306,9 +307,9 @@ const totalQuestions = 68;  // Total number of questions
 const imageExtension = ".png";  // Image extension
 
 
-const easyQuestions = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68];  // Easy questions
-const mediumQuestions = [];  // Medium difficulty questions
-const difficultQuestions = [];  // Newly added difficult questions
+const easyQuestions = [1,4,6,7,8,10,13,14,18,19,20,22,25,42,43,49,53,58,64,65,68];  // Easy questions
+const mediumQuestions = [2,3,9,11,15,21,23,24,26,27,29,30,32,33,36,39,40,41,44,45,50,51,52,55,59,60,61,62,63];  // Medium difficulty questions
+const difficultQuestions = [5,12,16,17,28,31,34,35,37,38,46,47,48,54,56,57,66,67];  // Newly added difficult questions
 
 let currentQuestion = 1;
 const container = document.getElementById("card-content");
